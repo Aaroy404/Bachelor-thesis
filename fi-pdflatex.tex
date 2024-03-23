@@ -63,7 +63,7 @@
     abstract    = {%
       This is the abstract of my thesis, which can
 
-      span multiple paragraphs.
+      span multiple~paragraphs.
     },
     thanks      = {%
       These are the acknowledgements for my thesis, which can
@@ -99,14 +99,14 @@
 \usepackage[babel]{csquotes} %% Context-sensitive quotation marks
 \begin{document}
 %% The \chapter* command can be used to produce unnumbered chapters:
-\chapter*{Introduction}
+\chapter*{Úvod}
 %% Unlike \chapter, \chapter* does not update the headings and does not
 %% enter the chapter to the table of contents. I we want correct
 %% headings and a table of contents entry, we must add them manually:
 \markright{\textsc{Introduction}}
 \addcontentsline{toc}{chapter}{Introduction}
 
-Theses are rumoured to be \enquote{the capstones of education}, so
+Theses are~rumoured to be \enquote{the capstones of education}, so
 I decided to write one of my own. If all goes well, I will soon
 have a diploma under my belt. Wish me luck!
 
@@ -129,7 +129,20 @@ zu schreiben. Wenn alles gut geht, bekomme ich bald ein Diplom.
 Wünsch mir Glück!
 \end{otherlanguage}
 
+\chapter{Prechod zo Záznamov na Potvrdenia}
+
+V tejto práci budú potrebné pojmy označujúce osoby, ktoré majú spojenie so školeniami bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a školeniami požiarnej ochrany (ďalej len PO) :
+
+Frekventant je pojem označujúci akúkoľvek osobu s aktívnym vzťahom k univerzite (pracovný úväzok, štúdium), ktorej vzniká povinnosť absolvovať nejaké školenie.~\cite[\nopp{2.1}]{Gabi-bakina}
+
+Vedúci zamestnanec predstavuje osobu, ktorá je formálne vedená ako nadriadený pre skupinu zamestnancov a ktorá dohliada na absolvovanie školení svojimi podriadenými.~[3, 2.1]
+Absolvent školenia je frekventant, ktorý splnil dané školenie.
+Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o školeniach BOZP a PO, ktoré frekventanti absolvovali. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára Záznamy pre školenia, ktorých sa táto povinnosť týka.~\cite[§~103~odst.~3,~2,~§~27]{Gabi-bakina}
+
+Záznam v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF, ktorý obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval. Tieto informácie zahŕňajú najmä:
+
 \chapter{Using lightweight markup}
+asdasdas~adsaadasd
 \shorthandoff{-}
 \begin{markdown}[
   citationNbsps,
@@ -144,7 +157,7 @@ Wünsch mir Glück!
   tableCaptions,
 ]
 
-If you decide that `\LaTeX`{=tex} is too wordy for some parts of your
+If~you decide that `\LaTeX`{=tex} is too wordy for some parts of your
 document, there are [packages](https://www.ctan.org/pkg/markdown
 "Markdown") that allow you to use more lightweight markup next
 to it.
@@ -248,7 +261,7 @@ belong to the previous footnote.
 
 Citations are used to provide bibliographical references to other
 documents. This is a regular citation~[@borgman03, p. 123]. This is
-an in-text citation: @borgman03. You can also cite several authors
+an in-text citation: @Gabi-bakina. You can also cite several authors
 at once using both regular~[see @borgman03, p. 123; @greenberg98,
 sec.  3.2; and @thanh01] and in-text citations: @borgman03 [p.123;
 @greenberg98, sec. 3.2; @thanh01].
