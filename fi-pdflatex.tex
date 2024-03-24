@@ -133,73 +133,64 @@ Wünsch mir Glück!
 
 V tejto práci budú potrebné pojmy označujúce osoby, ktoré majú spojenie so školeniami bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a školeniami požiarnej ochrany (ďalej len PO) :
 
-\begin{markdown}[
-  citationNbsps,
-  citations,
-  definitionLists,
-  fencedCode,
-  hashEnumerators,
-  inlineNotes,
-  notes,
-  pipeTables,
-  rawAttribute,
-  tableCaptions,
-]
-Frekventant
-:   je pojem označujúci akúkoľvek osobu s aktívnym vzťahom k univerzite (pracovný úväzok, štúdium), ktorej vzniká povinnosť absolvovať nejaké školenie. [@kandova2019, 2.1]
+~
 
-Vedúci zamestnanec
-:   predstavuje osobu, ktorá je formálne vedená ako nadriadený pre skupinu zamestnancov a ktorá dohliada na absolvovanie školení svojimi podriadenými. [@kandova2019, 2.1]
-
-Absolvent
-:   školenia je frekventant, ktorý splnil dané školenie.
-\end{markdown}
+    \enquote{\textbf{Frekventant} je pojem označujúci akúkoľvek osobu s aktívnym vzťahom k univerzite (pracovný úväzok, štúdium), ktorej vzniká povinnosť absolvovať nejaké školenie.
+    
+    \textbf{Vedúci zamestnanec} predstavuje osobu, ktorá je formálne vedená ako nadriadený pre skupinu zamestnancov a ktorá dohliada na absolvovanie školení svojimi podriadenými.}~\cite[KANDOVÁ,~2019,~s.~9]{kandova2019}
+    
+    \textbf{Absolvent} školenia je frekventant, ktorý splnil dané školenie.
 
 \section{Povinnosť dokumentovania BOZP a PO}
-Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o školeniach BOZP a PO, ktoré frekventanti absolvovali. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára Záznamy pre školenia, ktorých sa táto povinnosť týka.~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}
+Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o absolvovaní školení BOZP a PO frekventantmi. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára Záznamy pre školenia, na ktoré sa táto povinnosť vzťahuje.~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}
 
-\section{Dokumentácia v IS MU}
-\textbf{Záznam} v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF, ktorý obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval. Tieto informácie zahŕňajú najmä:
+\section{Dokumentácia pomocou Záznamov}
+\textbf{Záznam} v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF. Obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval. Tieto informácie zahŕňajú najmä:
 
 \begin{markdown}
   * Identifikačné údaje absolventa
-  * Informácie o relevantných absolvovaných školeniach
+  * Informácie o&nbsp;relevantných absolvovaných školeniach
   * Identifikačné údaje vedúceho zamestnanca
   * Dátum absolvovania školenia
-  * Priestor na podpis absolventa a vedúceho zamestnanca
+  * Priestor na podpis absolventa a&nbsp;vedúceho zamestnanca
   * Meno osoby, ktorej sa Záznam odovzdáva
 \end{markdown}
 
-\subsection{Problémy so Záznamami}
-Záznamy je nutné vytlačiť do papierovej formy a fyzicky podpísať ako absolventom tak aj vedúcim zamestnancom. Následne je potrebné ich odovzdať osobe zodpovednej za správu dokumentácie o absolvovaní BOZP a PO. Táto osoba ale môže byť rozdielna od vedúceho zamestnanca. Zároveň je touto úlohou častokrát poverená iná osoba pre rôzne pracoviská a typy školení.
+\section{Problémy so Záznamami}
+Všetky súčasti Záznamov sú z legálneho hľadiska dôležité. Ich komplexnosť ale so sebou prináša niektoré náročnosti, ktoré ich robia neefektívnymi.
 
-IS MU prevádzkuje školenia prevažne vo forme online kurzov. Pre určovanie osoby zodpovednej za preškolenie daného zamestnanca je z tohto dôvodu potrebné identifikovať jeho priameho nadriadeného, prípadne inú osobu s oprávnením zamestnanca preškoľovať. 
+\subsection{Skupiny školení v Záznamoch}
+Aby Záznamov nebolo príliš veľa, sú školenia delené do skupín podľa typov. Po absolvovaní školení systém všetky absolvované školenia daného typu pozbiera a postaví z nich jeden Záznam. Tento Záznam obsahuje spojené informácie o všetkých školeniach, ktoré sa v ňom nachádzajú. Problém ale nastáva, keď rôzne školenia rovnakého typu požadujú podpisy iných vedúcich zamestnancov alebo odovzdanie inej osobe zodpovednej za uchovávanie Záznamov. Potom je potrebné tento Záznam duplikovať a v každej kópii uviesť inú osobu pre danú rolu.
 
-Aby takýchto Záznamov nebolo priveľa, sú delené do skupín podľa typov školenia. Následne systém všetky absolvované školenia daného typu pozbiera a postaví z nich jeden Záznam. Tento Záznam obsahuje spojené informácie o všetkých školeniach. Problém ale nastáva, keď rôzne školenia rovnakého typu požadujú podpisy iných vedúcich zamestnancov alebo odovzdanie inej osobe zodpovednej za uchovávanie Záznamov. Potom je nutné tento Záznam duplikovať a v každej kópii uviesť inú osobu pre danú rolu.
-Potvrdenie s jednoduchým elektronickým podpisom.
+\subsection{Kto podpisuje Záznam}
+Záznamy je nutné vytlačiť do papierovej formy a fyzicky podpísať absolventom aj vedúcim zamestnancom školenia. IS MU prevádzkuje školenia prevažne vo forme online kurzov. Pre určovanie osoby zodpovednej za preškolenie daného zamestnanca je z tohto dôvodu potreba identifikovať jeho priameho nadriadeného alebo inú osobu poverenú zamestnanca preškoľovať. Pri Záznamoch s viacerými školeniami je táto akcia ale zbytočne náročná a vytvára konfliktné situácie.
 
-Záznamy špecifických školení je potrebné odovzdať na všetky aktívne pracoviská zamestnanca. 
+\subsection{Komu sa Záznam odovzdáva}
+Po podpísaní Záznamu je potrebné ho odovzdať osobe zodpovednej za správu dokumentácie o absolvovaní BOZP a PO. Táto osoba môže byť rozdielna od vedúceho zamestnanca. Zároveň je touto úlohou častokrát poverená iná osoba pre rôzne pracoviská a typy školení. Záznamy špecifických školení je dokonca potrebné odovzdať na všetky aktívne pracoviská zamestnanca. Zoznam osôb, ktorým treba daný Záznam odovzdať, je tým pádom tiež často problematický.
 
+\section{Dokumentácia pomocou Potvrdení}
 Aby bolo možné sa vyhnúť vyššie špecifikovaným problémom, bol navrhnutý prechod na Potvrdenie s jednoduchým elektronickým podpisom (ďalej len Potvrdenie). Je to spôsob dokumentácie pre školenia absolvované formou online kurzov.
-Potvrdenie je taktiež dokument formátu PDF, tentokrát sa ale jedno Potvrdenie vzťahuje práve k jednému absolvovanému školeniu frekventantom. Obsahuje redukovaný počet informácií:
+
+\textbf{Potvrdenie} je taktiež dokument formátu PDF, tentokrát sa ale jedno Potvrdenie vzťahuje práve k jednému absolvovanému školeniu frekventantom. Obsahuje redukovaný počet informácií:
 
 \begin{markdown}
   * Identifikačné údaje absolventa
-  * Informácie o absolvovanom školení a jeho náplň
+  * Informácie o&nbsp;absolvovanom školení a&nbsp;jeho náplň
   * Dátum absolvovania školenia
 \end{markdown}
 
-Ďalej je Potvrdenie podpísané jednoduchým elektronickým podpisom absolventa a zapečatené pečaťou IS MU.
+Keďže online školenia absolvuje frekventant bez dozoru vedúceho zamestnanca, nie je podpis tejto osoby vyžadovaný. Napriek tomu potreba, aby bol dokument potvrdený absolventom, stále platí pre Potvrdenia rovnako ako pre Záznamy. Je ale dostatočné, aby bolo Potvrdenie podpísané jednoduchým elektronickým podpisom a preukázateľná jeho autenticita.
 
-Keďže online školenia absolvuje frekventant samostatne bez dozoru vedúceho zamestnanca, nie je podpis tejto osoby vyžadovaný.
+\subsection{Spôsob podpisu Potvrdenia}
+Na podpis je použité tlačidlo pre potvrdenie prístupné iba v autorizovanom režime stránky. Stlačením tohto tlačidla absolvent potvrdzuje, že údaje na Potvrdení sú pravdivé a školenie naozaj absolvoval. Podľa špecifikácie možných foriem jednoduchého elektronického podpisu je toto dostačujúca akcia pre uznanie dokumentu za podpísaný.~\cite[~1.2, v.]{kment2016}
 
-Je teda dostatočné, aby bolo Potvrdenie podpísané jednoduchým elektronickým podpisom. V tomto prípade je na to použité tlačidlo prístupné iba v autorizovanom režime stránky pre potvrdenie.  Stlačením tohto tlačidla absolvent potvrdzuje, že údaje na Potvrdení sú pravdivé a že školenie naozaj absolvoval. Podľa špecifikácie možných foriem jednoduchého elektronického podpisu je toto dostačujúca akcia pre uznanie dokumentu za podpísaný.~\cite
+\subsection{Autenticita Potvrdenia}
+Jednoduchý elektronický podpis je používateľsky prívetivý práve svojou jednoduchosťou. Takýto podpis ale podľa definície nie je zaručený.~\cite{navara2021} Preto nie je isté, že ho k dokumentu zadala osoba, ku ktorej sa podpis vzťahuje.
 
-Jednoduchý elektronický podpis je používateľsky prívetivý práve svojou jednoduchosťou. Takýto podpis ale podľa definície nie je zaručený.~\cite{} Preto nie je isté, že ho k dokumentu zadala osoba, ku ktorej sa podpis vzťahuje.
+Aby teda Potvrdenie bolo z právneho hľadiska platné, musí byť dokument Zapečatený pečaťou IS MU. Vďaka pečati je zaručený pôvod dokumentu práve z tohto systému. Zo záznamov v systéme je potom jednoduché preukázať, že bol dokument podpísaný používateľom v autorizovanom režime. Identita majiteľa podpisu je teda preukázaná pomocou znalosti prihlasovacích údajov.
 
-Aby teda Potvrdenie bolo z právneho hľadiska platné, musí byť dokument Zapečatený pečaťou IS MU. Vďaka pečati je jasné, že dokument vznikol v systéme. Zo záznamov v systéme už je potom jednoduché preukázať, že dokument bol podpísaný používateľom v autorizovanom režime. Identita majiteľa podpisu je teda preukázaná kvôli znalosti prihlasovacích údajov.
-
-Vzhľadom na to, že Potvrdenia sú elektronicky podpísané a zapečatené, nie je potrebné vytvárať ich fyzickú kópiu a odovzdávať ju zodpovednej osobe. Stačí aby sa v systéme ukladali podpísané Potvrdenia.
+\subsection{Možnosť uchovávania digitálnych spisov}
+Vzhľadom na to, že Potvrdenia sú elektronicky podpísané a zapečatené, nie je potrebné vytvárať ich fyzickú kópiu a odovzdávať ju zodpovednej osobe. Stačí, aby sa v systéme ukladali podpísané Potvrdenia do digitálneho spisu absolventov.
 
 
 
@@ -322,11 +313,11 @@ belong to the previous footnote.
     multi-paragraph list items.
 
 Citations are used to provide bibliographical references to other
-documents. This is a regular citation~[@borgman03, p. 123]. This is
-an in-text citation: @Gabi-bakina. You can also cite several authors
-at once using both regular~[see @borgman03, p. 123; @greenberg98,
-sec.  3.2; and @thanh01] and in-text citations: @borgman03 [p.123;
-@greenberg98, sec. 3.2; @thanh01].
+documents. This is a regular citation~[@kandova2019, p. 123]. This is
+an in-text citation: @kandova2019. You can also cite several authors
+at once using both regular~[see @kandova2019, p. 123; @kandova2019,
+sec.  3.2; and @kandova2019] and in-text citations: @kandova2019 [p.123;
+@kandova2019, sec. 3.2; @kandova2019].
 
 Code blocks are used to include source code listings into the
 document:
@@ -659,20 +650,20 @@ After linking a bibliography data\-base files to the document using
 the \verb"\"\texttt{thesis\discretionary{-}{}{}setup\{bib\discretionary{=}{=}{=}%
 \{\textit{file1},\textit{file2},\,\ldots\,\}\}} command, you can
 start citing the entries. This is just dummy text
-\parencite{borgman03} lightly sprinkled with citations
-\parencite[p.~123]{greenberg98}. Several sources can be cited at
-once: \cite{borgman03,greenberg98,thanh01}.
-\citetitle{greenberg98} was written by \citeauthor{greenberg98} in
-\citeyear{greenberg98}. We can also produce \textcite{greenberg98}%
+\parencite{kandova2019} lightly sprinkled with citations
+\parencite[p.~123]{kandova2019}. Several sources can be cited at
+once: \cite{kandova2019,kandova2019,kandova2019}.
+\citetitle{kandova2019} was written by \citeauthor{kandova2019} in
+\citeyear{kandova2019}. We can also produce \textcite{kandova2019}%
 \ or %% Let us define a compound command:
 \def\citeauthoryear#1{(\textcite{#1},~\citeyear{#1})}%
-\citeauthoryear{greenberg98}%
+\citeauthoryear{kandova2019}%
 . The full bibliographic citation is:
-\emph{\fullcite{greenberg98}}. We can easily insert a bibliographic
-citation into the footnote\footfullcite{greenberg98}.
+\emph{\fullcite{kandova2019}}. We can easily insert a bibliographic
+citation into the footnote\footfullcite{kandova2019}.
 
 The \verb"\nocite" command will not generate any
-output\nocite{muni}, but it will insert its arguments into
+output\nocite{kandova2019}, but it will insert its arguments into
 the bibliography. The \verb"\nocite{*}" command will insert all the
 records in the bibliography database file into the bibliography.
 Try uncommenting the command

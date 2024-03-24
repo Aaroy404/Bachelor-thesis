@@ -15,4 +15,3 @@ vlna -r -l -v KkSsVvZzOoUuAaIi $filename
 # Compile the LaTeX document
 pdflatex --shell-escape -interaction=nonstopmode "$filename"
 
-mv "${filename%.*}.pdf" "output.pdf"
