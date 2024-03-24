@@ -133,13 +133,72 @@ Wünsch mir Glück!
 
 V tejto práci budú potrebné pojmy označujúce osoby, ktoré majú spojenie so školeniami bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a školeniami požiarnej ochrany (ďalej len PO) :
 
-Frekventant je pojem označujúci akúkoľvek osobu s aktívnym vzťahom k univerzite (pracovný úväzok, štúdium), ktorej vzniká povinnosť absolvovať nejaké školenie.~\cite[\nopp{2.1}]{Gabi-bakina}
+\begin{markdown}[
+  citationNbsps,
+  citations,
+  definitionLists,
+  fencedCode,
+  hashEnumerators,
+  inlineNotes,
+  notes,
+  pipeTables,
+  rawAttribute,
+  tableCaptions,
+]
+Frekventant
+:   je pojem označujúci akúkoľvek osobu s aktívnym vzťahom k univerzite (pracovný úväzok, štúdium), ktorej vzniká povinnosť absolvovať nejaké školenie. [@kandova2019, 2.1]
 
-Vedúci zamestnanec predstavuje osobu, ktorá je formálne vedená ako nadriadený pre skupinu zamestnancov a ktorá dohliada na absolvovanie školení svojimi podriadenými.~[3, 2.1]
-Absolvent školenia je frekventant, ktorý splnil dané školenie.
-Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o školeniach BOZP a PO, ktoré frekventanti absolvovali. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára Záznamy pre školenia, ktorých sa táto povinnosť týka.~\cite[§~103~odst.~3,~2,~§~27]{Gabi-bakina}
+Vedúci zamestnanec
+:   predstavuje osobu, ktorá je formálne vedená ako nadriadený pre skupinu zamestnancov a ktorá dohliada na absolvovanie školení svojimi podriadenými. [@kandova2019, 2.1]
 
-Záznam v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF, ktorý obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval. Tieto informácie zahŕňajú najmä:
+Absolvent
+:   školenia je frekventant, ktorý splnil dané školenie.
+\end{markdown}
+
+\section{Povinnosť dokumentovania BOZP a PO}
+Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o školeniach BOZP a PO, ktoré frekventanti absolvovali. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára Záznamy pre školenia, ktorých sa táto povinnosť týka.~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}
+
+\section{Dokumentácia v IS MU}
+\textbf{Záznam} v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF, ktorý obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval. Tieto informácie zahŕňajú najmä:
+
+\begin{markdown}
+  * Identifikačné údaje absolventa
+  * Informácie o relevantných absolvovaných školeniach
+  * Identifikačné údaje vedúceho zamestnanca
+  * Dátum absolvovania školenia
+  * Priestor na podpis absolventa a vedúceho zamestnanca
+  * Meno osoby, ktorej sa Záznam odovzdáva
+\end{markdown}
+
+\subsection{Problémy so Záznamami}
+Záznamy je nutné vytlačiť do papierovej formy a fyzicky podpísať ako absolventom tak aj vedúcim zamestnancom. Následne je potrebné ich odovzdať osobe zodpovednej za správu dokumentácie o absolvovaní BOZP a PO. Táto osoba ale môže byť rozdielna od vedúceho zamestnanca. Zároveň je touto úlohou častokrát poverená iná osoba pre rôzne pracoviská a typy školení.
+
+IS MU prevádzkuje školenia prevažne vo forme online kurzov. Pre určovanie osoby zodpovednej za preškolenie daného zamestnanca je z tohto dôvodu potrebné identifikovať jeho priameho nadriadeného, prípadne inú osobu s oprávnením zamestnanca preškoľovať. 
+
+Aby takýchto Záznamov nebolo priveľa, sú delené do skupín podľa typov školenia. Následne systém všetky absolvované školenia daného typu pozbiera a postaví z nich jeden Záznam. Tento Záznam obsahuje spojené informácie o všetkých školeniach. Problém ale nastáva, keď rôzne školenia rovnakého typu požadujú podpisy iných vedúcich zamestnancov alebo odovzdanie inej osobe zodpovednej za uchovávanie Záznamov. Potom je nutné tento Záznam duplikovať a v každej kópii uviesť inú osobu pre danú rolu.
+Potvrdenie s jednoduchým elektronickým podpisom.
+
+Záznamy špecifických školení je potrebné odovzdať na všetky aktívne pracoviská zamestnanca. 
+
+Aby bolo možné sa vyhnúť vyššie špecifikovaným problémom, bol navrhnutý prechod na Potvrdenie s jednoduchým elektronickým podpisom (ďalej len Potvrdenie). Je to spôsob dokumentácie pre školenia absolvované formou online kurzov.
+Potvrdenie je taktiež dokument formátu PDF, tentokrát sa ale jedno Potvrdenie vzťahuje práve k jednému absolvovanému školeniu frekventantom. Obsahuje redukovaný počet informácií:
+
+\begin{markdown}
+  * Identifikačné údaje absolventa
+  * Informácie o absolvovanom školení a jeho náplň
+  * Dátum absolvovania školenia
+\end{markdown}
+
+Ďalej je Potvrdenie podpísané jednoduchým elektronickým podpisom absolventa a zapečatené pečaťou IS MU.
+
+Keďže online školenia absolvuje frekventant samostatne bez dozoru vedúceho zamestnanca, nie je podpis tejto osoby vyžadovaný.
+
+Je teda dostatočné, aby bolo Potvrdenie podpísané jednoduchým elektronickým podpisom. V tomto prípade je na to použité tlačidlo prístupné iba v autorizovanom režime stránky pre potvrdenie.  Stlačením tohto tlačidla absolvent potvrdzuje, že údaje na Potvrdení sú pravdivé a že školenie naozaj absolvoval. Podľa špecifikácie možných foriem jednoduchého elektronického podpisu je toto dostačujúca akcia pre uznanie dokumentu za podpísaný.~\cite
+Jednoduchý elektronický podpis je používateľsky prívetivý práve svojou jednoduchosťou. Takýto podpis ale podľa definície nie je zaručený.~\cite{} Preto nie je isté, že ho k dokumentu zadala osoba, ku ktorej sa podpis vzťahuje.
+Aby teda Potvrdenie bolo z právneho hľadiska platné, musí byť dokument Zapečatený pečaťou IS MU. Vďaka pečati je jasné, že dokument vznikol v systéme. Zo záznamov v systéme už je potom jednoduché preukázať, že dokument bol podpísaný používateľom v autorizovanom režime. Identita majiteľa podpisu je teda preukázaná kvôli znalosti prihlasovacích údajov.
+Vzhľadom na to, že Potvrdenia sú elektronicky podpísané a zapečatené, nie je potrebné vytvárať ich fyzickú kópiu a odovzdávať ju zodpovednej osobe. Stačí aby sa v systéme ukladali podpísané Potvrdenia.
+
+
 
 \chapter{Using lightweight markup}
 asdasdas~adsaadasd
