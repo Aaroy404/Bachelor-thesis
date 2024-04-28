@@ -97,8 +97,12 @@
 \usepackage{floatrow} %% Putting captions above tables
 \floatsetup[table]{capposition=top}
 \usepackage[babel]{csquotes} %% Context-sensitive quotation marks
+\thesisload
+\DeclareDelimFormat{multicitedelim}{\addsemicolon\space}
+\DefineBibliographyStrings{slovak}{urlfrom = {dostupné z}}
 \begin{document}
 %% The \chapter* command can be used to produce unnumbered chapters:
+Podľa dohody odovzdávam úvod aj opravu prehľadovej kapitoly spolu. Za túto možnosť ďakujem :)
 \chapter*{Úvod}
 %% Unlike \chapter, \chapter* does not update the headings and does not
 %% enter the chapter to the table of contents. I we want correct
@@ -106,72 +110,66 @@
 \markright{\textsc{Introduction}}
 \addcontentsline{toc}{chapter}{Introduction}
 
-Theses are~rumoured to be \enquote{the capstones of education}, so
-I decided to write one of my own. If all goes well, I will soon
-have a diploma under my belt. Wish me luck!
+Jednou z dôležitých požiadaviek na prevádzku školení bezpečnosti a ochrany zdravia pri práci a požiarnej ochrany je udržiavanie dokumentácie o ich absolvovaní frekventantmi. Z právnych dôvodov totiž musí byť preukázateľné, že bol daný frekventant korektne zaškolený vo všetkých preňho relevantných smeroch.
 
-\begin{otherlanguage}{czech}
-Říká se, že závěrečné práce jsou \enquote{vyvrcholením studia}
-a tak jsem se rozhodl jednu také napsat. Pokud vše půjde podle
-plánu, odnesu si na konci semestru diplom. Držte mi palce!
-\end{otherlanguage}
+Je nutné, aby táto dokumentácia bola v prípade potreby z právneho hľadiska nevyvrátiteľná. Kvôli tomu musí byť potvrdená ako absolventom školenia, tak aj jeho školiteľom. Informačný systém Masarykovej univerzity používa na toto potvrdenie záznamov fyzický podpis oboch entít.
 
-\begin{otherlanguage}{slovak}
-Hovorí sa, že záverečné práce sú \enquote{vyvrcholením štúdia}
-a tak som sa rozhodol jednu tiež napísať. Ak všetko pôjde podľa
-plánu, odnesiem si na konci semestra diplom. Držte mi palce!
-\end{otherlanguage}
+Cieľom tejto práce je previezť proces potvrdzovania dokumentácie na Masarykovej univerzite do online formy implementáciou potvrdení s jednoduchým elektronickým podpisom. Zároveň je súčasťou taktiež aj následný prevod spisov tejto dokumentácie do elektronickej formy. Tieto zmeny uľahčia prácu všetkých zúčastnených strán prevádzky školení.
 
-\begin{otherlanguage}{german}
-Man munkelt, dass die Dissertation \enquote{die Krönung der
-Ausbildung} ist. Deshalb habe ich mich beschlossen meine eigene
-zu schreiben. Wenn alles gut geht, bekomme ich bald ein Diplom.
-Wünsch mir Glück!
-\end{otherlanguage}
+Ako prvé som musel preskúmať všetky rôzne právne a používateľské požiadavky na udržiavanú dokumentáciu (kapitoly 1 a 2). Následne som upravil funkcionalitu tvorby záznamov tak, aby odpovedala novej forme využívajúcej elektronický podpis (kapitola 3) a pridal možnosť samotného elektronického podpisu a zapečatenia systémom v aplikácii Úřadovna (kapitola 4).  Ako posledné bolo potrebné spojiť nové dokumenty s ich relevantnými elektronickými spismi v aplikácii Úschovna (kapitola 5).
 
-\chapter{Prechod zo Záznamov na Potvrdenia}
+Výsledné úpravy systému umožňujú frekventantom potvrdiť absolvovanie školenia priamo v aplikácii BOZP a zaručujú potvrdenie školiteľa (systému). Nové potvrdenia o absolvovaní školenia podpísané elektronicky spĺňajú všetky požiadavky na spravovanie dokumentácie BOZP a PO.
 
-V tejto práci budú potrebné pojmy označujúce osoby, ktoré majú spojenie so školeniami bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a školeniami požiarnej ochrany (ďalej len PO) :
+\chapter{Prechod zo záznamov na potvrdenia}
+
+V tejto práci sú použité pojmy označujúce osoby, ktoré majú spojenie so školeniami bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a školeniami požiarnej ochrany (ďalej len PO). Kvôli prehľadnosti ich v tejto kapitole definujem:
 
 ~
 
-    \enquote{\textbf{Frekventant} je pojem označujúci akúkoľvek osobu s aktívnym vzťahom k univerzite (pracovný úväzok, štúdium), ktorej vzniká povinnosť absolvovať nejaké školenie.
+    \textbf{Frekventant} je pojem označujúci osobu, ktorá má povinnosť splniť školenie.~\cite[9]{kandova2019}\\
     
-    \textbf{Vedúci zamestnanec} predstavuje osobu, ktorá je formálne vedená ako nadriadený pre skupinu zamestnancov a ktorá dohliada na absolvovanie školení svojimi podriadenými.}~\cite[KANDOVÁ,~2019,~s.~9]{kandova2019}
+    \textbf{Školiteľ} predstavuje entitu (osobu alebo systém), ktorá frekventanta preškoľuje.\\
     
     \textbf{Absolvent} školenia je frekventant, ktorý splnil dané školenie.
 
-\section{Povinnosť dokumentovania BOZP a PO}
-Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o absolvovaní školení BOZP a PO frekventantmi. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára Záznamy pre školenia, na ktoré sa táto povinnosť vzťahuje.~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}
+\section{Povinnosť dokumentovať BOZP a PO}
+Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o tom, že frekventanti absolvovali školenia BOZP a PO. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára pre školenia, na ktoré sa táto povinnosť vzťahuje, záznamy.~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}
 
-\section{Dokumentácia pomocou Záznamov}
-\textbf{Záznam} v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF. Obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval. Tieto informácie zahŕňajú najmä:
+\section{Záznamy}
+\textbf{Záznam} v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF. Obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval.
+
+Tieto informácie zahŕňajú najmä nasledujúce informácie:
 
 \begin{markdown}
   * Identifikačné údaje absolventa
   * Informácie o&nbsp;relevantných absolvovaných školeniach
-  * Identifikačné údaje vedúceho zamestnanca
+  * Identifikačné údaje školiteľa (vedúceho zamestnanca)
   * Dátum absolvovania školenia
-  * Priestor na podpis absolventa a&nbsp;vedúceho zamestnanca
-  * Meno osoby, ktorej sa Záznam odovzdáva
+  * Priestor na podpis absolventa a&nbsp;školiteľa
+  * Meno osoby, ktorej sa záznam odovzdáva
 \end{markdown}
 
-\section{Problémy so Záznamami}
-Všetky súčasti Záznamov sú z legálneho hľadiska dôležité. Ich komplexnosť ale so sebou prináša niektoré náročnosti, ktoré ich robia neefektívnymi.
+\section{Problémy so záznamami}
+Všetky súčasti záznamov sú z legálneho hľadiska dôležité. Ich komplexnosť ale so sebou prináša niektoré komplikácie, ktoré ich robia neefektívnymi.
 
-\subsection{Skupiny školení v Záznamoch}
-Aby Záznamov nebolo príliš veľa, sú školenia delené do skupín podľa typov. Po absolvovaní školení systém všetky absolvované školenia daného typu pozbiera a postaví z nich jeden Záznam. Tento Záznam obsahuje spojené informácie o všetkých školeniach, ktoré sa v ňom nachádzajú. Problém ale nastáva, keď rôzne školenia rovnakého typu požadujú podpisy iných vedúcich zamestnancov alebo odovzdanie inej osobe zodpovednej za uchovávanie Záznamov. Potom je potrebné tento Záznam duplikovať a v každej kópii uviesť inú osobu pre danú rolu.
+Aby záznamov nebolo príliš veľa, sú školenia delené do skupín podľa typov. Po absolvovaní školení systém všetky absolvované školenia daného typu pozbiera a postaví z nich jeden záznam. Tento záznam obsahuje spojené informácie o všetkých školeniach, ktoré sa v ňom nachádzajú.
 
-\subsection{Kto podpisuje Záznam}
-Záznamy je nutné vytlačiť do papierovej formy a fyzicky podpísať absolventom aj vedúcim zamestnancom školenia. IS MU prevádzkuje školenia prevažne vo forme online kurzov. Pre určovanie osoby zodpovednej za preškolenie daného zamestnanca je z tohto dôvodu potreba identifikovať jeho priameho nadriadeného alebo inú osobu poverenú zamestnanca preškoľovať. Pri Záznamoch s viacerými školeniami je táto akcia ale zbytočne náročná a vytvára konfliktné situácie.
+Problém ale nastáva, keď rôzne školenia rovnakého typu požadujú podpisy iných vedúcich zamestnancov alebo odovzdanie inej osobe zodpovednej za uchovávanie záznamov. Potom je potrebné tento záznam duplikovať a v každej kópii uviesť inú osobu pre danú rolu.
 
-\subsection{Komu sa Záznam odovzdáva}
-Po podpísaní Záznamu je potrebné ho odovzdať osobe zodpovednej za správu dokumentácie o absolvovaní BOZP a PO. Táto osoba môže byť rozdielna od vedúceho zamestnanca. Zároveň je touto úlohou častokrát poverená iná osoba pre rôzne pracoviská a typy školení. Záznamy špecifických školení je dokonca potrebné odovzdať na všetky aktívne pracoviská zamestnanca. Zoznam osôb, ktorým treba daný Záznam odovzdať, je tým pádom tiež často problematický.
+Pre niektoré záznamy sa vyžaduje, aby boli vytlačené do papierovej formy a fyzicky podpísané absolventom aj vedúcim zamestnancom školenia. IS MU prevádzkuje školenia prevažne vo forme online kurzov.
 
-\section{Dokumentácia pomocou Potvrdení}
-Aby bolo možné sa vyhnúť vyššie špecifikovaným problémom, bol navrhnutý prechod na Potvrdenie s jednoduchým elektronickým podpisom (ďalej len Potvrdenie). Je to spôsob dokumentácie pre školenia absolvované formou online kurzov.
+Pre určovanie osoby zodpovednej za preškolenie daného zamestnanca je preto potreba identifikovať jeho priameho nadriadeného alebo inú osobu poverenú zamestnanca preškoľovať. Pri záznamoch s viacerými školeniami je táto akcia ale zbytočne náročná a vytvára konfliktné situácie.
 
-\textbf{Potvrdenie} je taktiež dokument formátu PDF, tentokrát sa ale jedno Potvrdenie vzťahuje práve k jednému absolvovanému školeniu frekventantom. Obsahuje redukovaný počet informácií:
+Po podpísaní záznamu je potrebné ho odovzdať osobe zodpovednej za správu dokumentácie o absolvovaní BOZP a PO.
+
+Táto osoba môže byť rozdielna od vedúceho zamestnanca. Zároveň je touto úlohou častokrát poverená iná osoba pre rôzne pracoviská a typy školení. Záznamy špecifických školení je dokonca potrebné odovzdať na všetky aktívne pracoviská zamestnanca, ktoré toto školenie požadujú.
+
+Zoznam osôb, ktorým treba daný záznam odovzdať, je tým pádom tiež často problematický.
+
+\section{Dokumentácia pomocou potvrdení}
+Aby bolo možné sa vyhnúť vyššie špecifikovaným problémom, bol navrhnutý prechod na potvrdenie s jednoduchým elektronickým podpisom (ďalej len potvrdenie). Je to spôsob dokumentácie pre školenia absolvované formou online kurzov.
+
+\textbf{Potvrdenie} je taktiež dokument formátu PDF, v tomto prípade sa ale jedno potvrdenie vzťahuje práve k jednému absolvovanému školeniu. Obsahuje redukovaný počet informácií:
 
 \begin{markdown}
   * Identifikačné údaje absolventa
@@ -179,15 +177,20 @@ Aby bolo možné sa vyhnúť vyššie špecifikovaným problémom, bol navrhnut�
   * Dátum absolvovania školenia
 \end{markdown}
 
-Keďže online školenia absolvuje frekventant bez dozoru vedúceho zamestnanca, nie je podpis tejto osoby vyžadovaný. Napriek tomu potreba, aby bol dokument potvrdený absolventom, stále platí pre Potvrdenia rovnako ako pre Záznamy. Je ale dostatočné, aby bolo Potvrdenie podpísané jednoduchým elektronickým podpisom a preukázateľná jeho autenticita.
+\noindent
+Keďže online školenia absolvuje frekventant bez dozoru vedúceho zamestnanca, nie je podpis tejto osoby vyžadovaný.
 
-\subsection{Spôsob podpisu Potvrdenia}
-Na podpis je použité tlačidlo pre potvrdenie prístupné iba v autorizovanom režime stránky. Stlačením tohto tlačidla absolvent potvrdzuje, že údaje na Potvrdení sú pravdivé a školenie naozaj absolvoval. Podľa špecifikácie možných foriem jednoduchého elektronického podpisu je toto dostačujúca akcia pre uznanie dokumentu za podpísaný.~\cite[~1.2, v.]{kment2016}
+Napriek tomu potreba, aby bol dokument potvrdený absolventom, platí pre potvrdenia rovnako ako pre záznamy. Je ale dostatočné, aby potvrdenie bolo podpísané jednoduchým elektronickým podpisom a bola preukázateľná jeho autenticita.
 
-\subsection{Autenticita Potvrdenia}
+\subsection{Spôsob podpisu potvrdenia}
+Na podpis je použité tlačidlo pre potvrdenie v aplikácii BOZP prístupné iba v autorizovanom režime stránky IS MU. Stlačením tohto tlačidla absolvent potvrdzuje, že údaje na potvrdení sú pravdivé a školenie naozaj absolvoval.
+
+Podľa špecifikácie možných foriem jednoduchého elektronického podpisu je toto dostačujúca akcia pre uznanie dokumentu za podpísaný.~\cite[~1.2, bod v.]{kment2016}
+
+\subsection{Autenticita potvrdenia}
 Jednoduchý elektronický podpis je používateľsky prívetivý práve svojou jednoduchosťou. Takýto podpis ale podľa definície nie je zaručený.~\cite{navara2021} Preto nie je isté, že ho k dokumentu zadala osoba, ku ktorej sa podpis vzťahuje.
 
-Aby teda Potvrdenie bolo z právneho hľadiska platné, musí byť dokument Zapečatený pečaťou IS MU. Vďaka pečati je zaručený pôvod dokumentu práve z tohto systému. Zo záznamov v systéme je potom jednoduché preukázať, že bol dokument podpísaný používateľom v autorizovanom režime. Identita majiteľa podpisu je teda preukázaná pomocou znalosti prihlasovacích údajov.
+Aby bolo potvrdenie z právneho hľadiska platné, tak ho IS MU automaticky zapečatí svojou pečaťou. Vďaka pečati je zaručený pôvod dokumentu práve z tohto systému. Zo záznamov v systéme je jednoduché preukázať, že bol dokument podpísaný používateľom v autorizovanom režime. Identita majiteľa podpisu je teda preukázaná pomocou znalosti prihlasovacích údajov.
 
 \subsection{Možnosť uchovávania digitálnych spisov}
 Vzhľadom na to, že Potvrdenia sú elektronicky podpísané a zapečatené, nie je potrebné vytvárať ich fyzickú kópiu a odovzdávať ju zodpovednej osobe. Stačí, aby sa v systéme ukladali podpísané Potvrdenia do digitálneho spisu absolventov.
