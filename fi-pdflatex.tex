@@ -102,27 +102,28 @@
 \DefineBibliographyStrings{slovak}{urlfrom = {dostupné z}}
 \begin{document}
 %% The \chapter* command can be used to produce unnumbered chapters:
-Podľa dohody odovzdávam úvod aj opravu prehľadovej kapitoly spolu. Za túto možnosť ďakujem :)
 \chapter*{Úvod}
+\label{chap:intro}
 %% Unlike \chapter, \chapter* does not update the headings and does not
 %% enter the chapter to the table of contents. I we want correct
 %% headings and a table of contents entry, we must add them manually:
 \markright{\textsc{Introduction}}
 \addcontentsline{toc}{chapter}{Introduction}
 
-Jednou z dôležitých požiadaviek na prevádzku školení bezpečnosti a ochrany zdravia pri práci a požiarnej ochrany je udržiavanie dokumentácie o ich absolvovaní frekventantmi. Z právnych dôvodov totiž musí byť preukázateľné, že bol daný frekventant korektne zaškolený vo všetkých preňho relevantných smeroch.
+Jednou z dôležitých požiadaviek na prevádzku školení bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a požiarnej ochrany (ďalej len PO) je udržiavanie dokumentácie o ich absolvovaní frekventantmi.
 
-Je nutné, aby táto dokumentácia bola v prípade potreby z právneho hľadiska nevyvrátiteľná. Kvôli tomu musí byť potvrdená ako absolventom školenia, tak aj jeho školiteľom. Informačný systém Masarykovej univerzity používa na toto potvrdenie záznamov fyzický podpis oboch entít.
+Z právnych dôvodov musí byť preukázateľné, že bol daný frekventant korektne zaškolený vo všetkých preňho relevantných smeroch. Aby bola takáto dokumentácia právne nevyvrátiteľná, musí byť potvrdená ako absolventom školenia, tak aj jeho školiteľom. Informačný systém Masarykovej univerzity (IS MU) používa na toto potvrdenie záznamov fyzický podpis oboch entít.
 
-Cieľom tejto práce je previezť proces potvrdzovania dokumentácie na Masarykovej univerzite do online formy implementáciou potvrdení s jednoduchým elektronickým podpisom. Zároveň je súčasťou taktiež aj následný prevod spisov tejto dokumentácie do elektronickej formy. Tieto zmeny uľahčia prácu všetkých zúčastnených strán prevádzky školení.
+Cieľom tejto práce je previezť proces potvrdzovania dokumentácie o absolvovaní školení na Masarykovej univerzite (MU) do online formy. Za týmto účelom je nevyhnutná implementácia potvrdení s jednoduchým elektronickým podpisom. Súčasťou práce je aj následný prevod spisov tejto dokumentácie do elektronickej formy. Tieto zmeny uľahčia prácu všetkým zúčastneným stranám prevádzky školení.
 
-Ako prvé som musel preskúmať všetky rôzne právne a používateľské požiadavky na udržiavanú dokumentáciu (kapitoly 1 a 2). Následne som upravil funkcionalitu tvorby záznamov tak, aby odpovedala novej forme využívajúcej elektronický podpis (kapitola 3) a pridal možnosť samotného elektronického podpisu a zapečatenia systémom v aplikácii Úřadovna (kapitola 4).  Ako posledné bolo potrebné spojiť nové dokumenty s ich relevantnými elektronickými spismi v aplikácii Úschovna (kapitola 5).
+Najprv som preštudoval právne (kapitola~\hyperref[kap-1]{1}) a používateľské (kapitola~\hyperref[kap-1]{2}) požiadavky na udržiavanú dokumentáciu. Následne som upravil funkcionalitu tvorby záznamov tak, aby odpovedala novej forme využívajúcej elektronický podpis (kapitola~\hyperref[kap-1]{3}). Ďalej som pridal možnosť samotného elektronického podpisu a zapečatenia pečaťou IS MU v aplikácii Úřadovna (kapitola~\hyperref[kap-1]{4}). Ako posledné bolo potrebné spojiť nové dokumenty s ich relevantnými elektronickými spismi v aplikácii Úschovna (kapitola~\hyperref[kap-1]{5}).
 
-Výsledné úpravy systému umožňujú frekventantom potvrdiť absolvovanie školenia priamo v aplikácii BOZP a zaručujú potvrdenie školiteľa (systému). Nové potvrdenia o absolvovaní školenia podpísané elektronicky spĺňajú všetky požiadavky na spravovanie dokumentácie BOZP a PO.
+Výsledné úpravy systému umožňujú frekventantom potvrdiť absolvovanie školenia priamo v IS MU v aplikácii BOZP a zaručujú potvrdenie školiteľa, ktorým je po týchto úpravách IS MU. Nové potvrdenia o absolvovaní školenia podpísané elektronicky spĺňajú všetky požiadavky na spravovanie dokumentácie BOZP a PO.
 
-\chapter{Prechod zo záznamov na potvrdenia}
 
-V tejto práci sú použité pojmy označujúce osoby, ktoré majú spojenie so školeniami bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a školeniami požiarnej ochrany (ďalej len PO). Kvôli prehľadnosti ich v tejto kapitole definujem:
+\chapter{Školenia BOZP a PO}
+\label{kap-1}
+V tejto práci sú použité pojmy označujúce osoby, ktoré majú spojenie so školeniami BOZP a PO. Kvôli prehľadnosti ich v tejto kapitole definujeme:
 
 ~
 
@@ -130,618 +131,188 @@ V tejto práci sú použité pojmy označujúce osoby, ktoré majú spojenie so 
     
     \textbf{Školiteľ} predstavuje entitu (osobu alebo systém), ktorá frekventanta preškoľuje.\\
     
-    \textbf{Absolvent} školenia je frekventant, ktorý splnil dané školenie.
+    \textbf{Absolvent} školenia je frekventant, ktorý splnil dané školenie.\\
 
-\section{Povinnosť dokumentovať BOZP a PO}
-Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o tom, že frekventanti absolvovali školenia BOZP a PO. Z tohto dôvodu Informačný systém Masarykovej univerzity (ďalej len IS MU) vytvára pre školenia, na ktoré sa táto povinnosť vzťahuje, záznamy.~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}
+    \textbf{Správca dokumentácie} je osoba poverená uchovávaním dokumentácie o danom školení.
+~
+\\\\
+Náplň tejto práce je priamo spojená s témou školení BOZP a PO. Z tohto dôvodu je nevyhnutné zhrnúť pár základných informácií na túto tému, ktoré sú dôležité pre porozumenie problémov riešených v nasledujúcich kapitolách.
 
-\section{Záznamy}
-\textbf{Záznam} v kontexte dokumentácie BOZP a PO v IS MU je dokument formátu PDF. Obsahuje všetky dôležité informácie potrebné k preukázaniu, že daný frekventant školenie naozaj absolvoval.
+Zákonník práce Českej republiky nariaďuje zamestnávateľom poskytovať zamestnancom školenia BOZP~\cite[§~103~odst.~3]{cesko_zakonik_prace}, PO~\cite[§~349~odst.~1]{cesko_zakonik_prace} a školenie prvej pomoci~\cite[§~102~odst.~6]{cesko_zakonik_prace}. Zámerom týchto školení je informovanie zamestnancov o možných rizikách, na ktoré môžu pri práci naraziť, a naučenie základných zručností potrebných pre minimalizovanie úrazov a škôd spôsobených v prípade stretu s rizikovou situáciou.
 
-Tieto informácie zahŕňajú najmä nasledujúce informácie:
+Zákonník ďalej nariaďuje, aby boli frekventanti periodicky preškoľovaní. Frekvenciu si zamestnávateľ stanovuje sám, ale zákon nariaďuje minimum dvoch rokov pre nevedúcich zamestnancov a troch rokov pre vedúcich zamestnancov.~\cite[~§103~odst.~3]{cesko_zakonik_prace}
+
+\section{Variabilita školení}
+Presný obsah školení nie je zákonom definovaný. Definované sú iba záchytné body, ktoré sú v školení nevyhnutné. Príkladom je nariadenie, aby školenie PO zahŕňalo požiarny poriadok, požiarne poplachové smernice, prípadne evakuačný plán a ďalšiu dokumentáciu obsahujúcu stanovenie podmienok PO daného pracoviska.~\cite[~§23~odst.~1~c)]{cesko_vyhlaska_poziarna_prevence}. Presný obsah tejto dokumentácie je ale v každom školení upravený tak, aby bol relevantný vzhľadom na pracovisko, na ktorom sa školenie prevádzkuje.
+
+K väčšiemu počtu variánt školení prispieva aj fakt, že školenia PO musia byť špecificky upravené pre vedúcich zamestnancov a pre ostatných zamestnancov.~\cite[~§16~odst.~2]{cesko_zakon_pozarni_ochrana} Častokrát tak vznikajú dve verzie k školeniam viazaným na rovnaké pracovisko a pracovnú náplň.
+
+Varianty školení môžu byť označené svojim číslom osnovy. Toto číslo zamestnávateľom obvykle dodáva odborný špecialista BOZP. Pomocou čísla osnovy je následne možné určiť, akým obsahom bol frekventant preškolený. Z tohto dôvodu sa označenie pridáva do záznamu o školení, ktorý frekventant a školiteľ podpisujú.
+
+\section{Dokumentácia školení}
+Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o tom, že frekventanti absolvovali školenia BOZP a PO. ~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}
+
+Táto dokumentácia je následne používaná v právnych procesoch v prípade úrazu alebo škody na pracovisku. Z tohto dôvodu je dôležité, aby boli záznamy dobre uchovávané a aby obsahovali všetky relevantné informácie. Zákon presné znenie záznamov síce nešpecifikuje, no je odporúčané, aby obsahovali aspoň identifikačné údaje absolventa a školiteľa, informácie o absolvovanom školení a dátum absolvovania.~\cite{prevent_bozp}
+
+\chapter{Školenia v IS MU}
+\label{kap-2}
+Práca je zameraná na úpravy systému školení v IS MU, preto v nasledujúcej kapitole skrátene popíšeme, ako sú tieto školenia momentálne prevádzkované. 
+
+\section{Aplikácia Bozp}
+Frekventanti sa k absolvovaniu školenia dostanú pomocou aplikácie Bozp.
+\footnote{\url{https://is.muni.cz/auth/bozp/}} V aplikácii Bozp sú školenia tvorené elektronickými kurzami, ktoré môžu obsahovať jednu alebo viac z nasledujúcich častí~\cite[19]{kandova2019}:
+\begin{enumerate}
+    \item \textbf{Prezentácia} – obsahuje hlavný výklad a vizuálne materiály.
+    \item \textbf{Súbory na stiahnutie} – textové dokumenty, ktoré si účastníci musia stiahnuť a prečítať.
+    \item \textbf{Otázky} – test, ktorý musia účastníci správne zodpovedať na overenie porozumenia školenia.
+\end{enumerate}
+
+\section{Varianty školení a kurzov}
+Občas sú v školeniach rôzne verzie kurzov a frekventant si môže vybrať, ktorý kurz absolvuje. Ak je potrebné školenie realizovať vo viacerých jazykoch, pre každú jazykovú variantu sa vytvorí samostatný kurz. Pre úspešné absolvovanie školenia stačí absolvovať ktorýkoľvek kurz patriaci pod toto školenie.
+
+Varianty celých školení majú obvykle svoje číslo osnovy. Občas ale číslo osnovy so školením dodané nie je. Potom je dôležité uchovávať skrátený obsah školenia, ktorý osnovu nahradzuje. 
+
+IS MU obsahuje v čase písania tejto práce viac ako 100 variant školení BOZP a PO a približne 130 kurzov, ktoré tieto školenia realizujú.
+
+Toto vysoké množstvo variánt je neskôr dôležité v problematike dokumentácie absolvovaných školení, ktorá je riešená v ďalších kapitolách práce.
+
+POCET PREJDENYCH SKOLENI, CO TO ZNAMENA PRE DOKUMENTACIU
+
+
+\chapter{Dokumentácia školení v IS MU}
+\label{kap-3}
+V IS MU sa dokumentácia školení uchováva pomocou \textbf{Záznamov o absolvovaní školení} (ďalej len Záznam). Sú to systémom generované dokumenty formátu PDF. Záznam je definovaný ako dokument, ktorý potvrdzuje, že školiteľ v určený dátum preškolil frekventanta obsahom školení, na ktoré sa Záznam vzťahuje. Pre plnú platnosť Záznamu je potrebné ho vytlačiť, fyzicky podpísať absolventom aj školiteľom a odovzdať správcovi dokumentácie.
+
+Záznamy obsahujú nasledujúce informácie:
 
 \begin{markdown}
-  * Identifikačné údaje absolventa
-  * Informácie o&nbsp;relevantných absolvovaných školeniach
-  * Identifikačné údaje školiteľa (vedúceho zamestnanca)
-  * Dátum absolvovania školenia
-  * Priestor na podpis absolventa a&nbsp;školiteľa
-  * Meno osoby, ktorej sa záznam odovzdáva
+  * Informácie o&nbsp;relevantných absolvovaných školeniach;
+  * Dátum absolvovania školenia;
+  * Identifikačné údaje absolventa;
+  * Identifikačné údaje školiteľa (vedúceho zamestnanca);
+  * Priestor na podpis absolventa a&nbsp;školiteľa;
+  * Meno osoby, ktorej sa záznam odovzdáva (správca dokumentácie).
 \end{markdown}
 
-\section{Problémy so záznamami}
-Všetky súčasti záznamov sú z legálneho hľadiska dôležité. Ich komplexnosť ale so sebou prináša niektoré komplikácie, ktoré ich robia neefektívnymi.
+\section{Podpis a odovzdávanie Záznamov}
+Keďže záznamy vyžadujú podpis fyzickej osoby ako školiteľa, je potrebné túto osobu určiť. Ak nie je vedením špecifikovaná osoba zodpovedná za školenie zamestnancov, je touto povinnosťou poverený priamy nadriadený frekventanta školenia. Záznam o absolvovaní školenia následne musí táto osoba podpísať, čím potvrdzuje, že školenie skutočne prebehlo. V praxi väčšina školení nemá špecifikovanú zodpovednú osobu, a preto sa ďalej budeme zaoberať najmä touto variantou.
 
-Aby záznamov nebolo príliš veľa, sú školenia delené do skupín podľa typov. Po absolvovaní školení systém všetky absolvované školenia daného typu pozbiera a postaví z nich jeden záznam. Tento záznam obsahuje spojené informácie o všetkých školeniach, ktoré sa v ňom nachádzajú.
+Záznamy o všeobecných školeniach, ako napríklad základné školenie BOZP alebo školenie prvej pomoci, podpisujú nadriadený zamestnanci všetkých \textit{kmeňových pracovísk}\footnote{Kmeňové pracovisko - miesto alebo organizačná jednotka, ku ktorej je pracovník formálne pridelený ako svoje hlavné pracovné miesto.} absolventa. Jedna osoba môže mať kmeňových pracovísk na MU akýkoľvek počet.
 
-Problém ale nastáva, keď rôzne školenia rovnakého typu požadujú podpisy iných vedúcich zamestnancov alebo odovzdanie inej osobe zodpovednej za uchovávanie záznamov. Potom je potrebné tento záznam duplikovať a v každej kópii uviesť inú osobu pre danú rolu.
+Záznamy o špecifických školeniach podpisujú nadriadení zamestnanci iba na pracoviskách (aj iných, ako kmeňových) absolventa, ktoré dané školenie vyžadujú.
 
-Pre niektoré záznamy sa vyžaduje, aby boli vytlačené do papierovej formy a fyzicky podpísané absolventom aj vedúcim zamestnancom školenia. IS MU prevádzkuje školenia prevažne vo forme online kurzov.
+Podpísaný Záznam musí absolvent následne odovzdať správcovi dokumentácie. V mnohých prípadoch túto úlohu plní samotný školiteľ, avšak pri každom preškolení je možné presne určiť osobu zodpovednú za správu dokumentácie.
 
-Pre určovanie osoby zodpovednej za preškolenie daného zamestnanca je preto potreba identifikovať jeho priameho nadriadeného alebo inú osobu poverenú zamestnanca preškoľovať. Pri záznamoch s viacerými školeniami je táto akcia ale zbytočne náročná a vytvára konfliktné situácie.
+Môže nastať situácia, že zamestnanec školenie absolvuje a počas jeho platnosti vznikne zamestnancovi nový úväzok na inom pracovisku MU, ktoré toto školenie taktiež požaduje. V tomto prípade vedenie MU požiadalo, aby miesto opakovaného preškoľovania stačilo Záznam o školení dať podpísať školiteľovi (nadriadenému zamestnancovi) na novom pracovisku. Preto musia byť všetky potrebné informácie na generovanie nového Záznamu s iným menom školiteľa uchovávané po celú dobu platnosti školenia.
 
-Po podpísaní záznamu je potrebné ho odovzdať osobe zodpovednej za správu dokumentácie o absolvovaní BOZP a PO.
+\section{Skupiny školení v Záznamoch}
+Záznamy vyžadujú veľké množstvo administratívnych úkonov spojených s ich uchovávaním. Preto bola na Záznamy stanovená požiadavka, aby mohli obsahovať viacero školení, čím sa ich počet zníži.
 
-Táto osoba môže byť rozdielna od vedúceho zamestnanca. Zároveň je touto úlohou častokrát poverená iná osoba pre rôzne pracoviská a typy školení. Záznamy špecifických školení je dokonca potrebné odovzdať na všetky aktívne pracoviská zamestnanca, ktoré toto školenie požadujú.
+Niektoré školenia ale nemôžu spolu patriť do jedného Záznamu. Separátne musia byť napríklad obecné a špecifické školenia, pretože ich treba odovzdávať na iné pracoviská a iným správcom dokumentácie. Provozní odboru MU zároveň požiadal, aby školenie pre vodičov nebolo na rovnakom Zozname ako školenia BOZP a PO. Preto sú školenia rozdelené do takzvaných záznamových skupín, ktoré určujú, či môžu byť dve školenia zahrnuté do rovnakého Záznamu.
 
-Zoznam osôb, ktorým treba daný záznam odovzdať, je tým pádom tiež často problematický.
+\section{Problémy so Záznamami}
+Záznamy sú síce z právneho hľadiska plne platné, ale spôsob ich generácie a uchovávania so sebou prináša veľké množstvo komplikácií, ktoré ich robia neefektívnymi.
 
-\section{Dokumentácia pomocou potvrdení}
-Aby bolo možné sa vyhnúť vyššie špecifikovaným problémom, bol navrhnutý prechod na potvrdenie s jednoduchým elektronickým podpisom (ďalej len potvrdenie). Je to spôsob dokumentácie pre školenia absolvované formou online kurzov.
+\subsection*{Fyzická forma}
+Jednou z najvýraznejších nevýhod je ich fyzická forma. Aj napriek snahám o zjednodušenie ich správy, ako je napríklad spájanie školení do skupín, vyžadujú od absolventov, školiteľov a správcov dokumentácie mnohé úkony, ktoré moderná digitálna forma dokumentácie výrazne zjednodušuje alebo úplne eliminuje.
 
-\textbf{Potvrdenie} je taktiež dokument formátu PDF, v tomto prípade sa ale jedno potvrdenie vzťahuje práve k jednému absolvovanému školeniu. Obsahuje redukovaný počet informácií:
+Častokrát sa napríklad stáva, že zamestnanci Záznam zabudnú odovzdať, odovzdajú nesprávnej osobe, alebo Záznam vôbec ani nevytlačia. Ak by Záznamy boli držané čisto digitálne, všetky tieto akcie by mohli byť automatizované a zjednodušené. Systém by zároveň vedel ľahšie kontrolovať, ktoré akcie už boli vykonané, a upozorniť relevantnú osobu v prípade, že niečo zostalo nedokončené.
 
-\begin{markdown}
-  * Identifikačné údaje absolventa
-  * Informácie o&nbsp;absolvovanom školení a&nbsp;jeho náplň
-  * Dátum absolvovania školenia
-\end{markdown}
+Ďalším príkladom je potreba fyzických spisov. Systém neobsahuje úložisko vytlačených Záznamov, a preto sú Záznamy udržiavané iba vo fyzických spisoch správcami dokumentácie. Táto potreba by taktiež bola digitalizáciou úplne odstránená.
 
-\noindent
-Keďže online školenia absolvuje frekventant bez dozoru vedúceho zamestnanca, nie je podpis tejto osoby vyžadovaný.
+\subsection*{Podpis Záznamu na novom pracovisku}
+Ak zamestnanec nastúpi na nové pracovisko, ale niektoré požadované školenie už má absolvované a platné, nie je ním preškolený znova. Namiesto školenia mu nový nadriadený zamestnanec podpíše Záznam o školení ako jeho školiteľ.
 
-Napriek tomu potreba, aby bol dokument potvrdený absolventom, platí pre potvrdenia rovnako ako pre záznamy. Je ale dostatočné, aby potvrdenie bolo podpísané jednoduchým elektronickým podpisom a bola preukázateľná jeho autenticita.
+Komplikáciu predstavuje fakt, že Záznam z definície tvrdí, že daný školiteľ preškolil frekventanta daným školením v určenom dátume. Ak je na Zázname nové dátum školenia (po vzniku nového úväzku), tak je toto tvrdenie nepravdivé, pretože ku žiadnemu preškoleniu neprišlo. Takisto však nový nadriadený zamestnanec nemôže podpísať Záznam o školení s dátumom, v ktorom zamestnanec školenie reálne absolvoval, pretože v danej dobe ešte nebol nadriadeným tohto zamestnanca.
 
-\subsection{Spôsob podpisu potvrdenia}
-Na podpis je použité tlačidlo pre potvrdenie v aplikácii BOZP prístupné iba v autorizovanom režime stránky IS MU. Stlačením tohto tlačidla absolvent potvrdzuje, že údaje na potvrdení sú pravdivé a školenie naozaj absolvoval.
+\subsection*{Dynamická generácia}
+Za určitých okolností je nutné Záznam generovať nanovo. Nová generácia je potrebná najmä pri zmenách, ako sú napríklad pridanie školenia rovnakej Záznamovej skupiny školení alebo prestup na nové pracovisko. Táto potreba so sebou prináša problémy s udržiavaním histórie dát.
 
-Podľa špecifikácie možných foriem jednoduchého elektronického podpisu je toto dostačujúca akcia pre uznanie dokumentu za podpísaný.~\cite[~1.2, bod v.]{kment2016}
+Keďže sa v digitálnej forme Záznamy neuchovávajú, musí byť každý Záznam generovaný nanovo. V prípade, že sa zmení legislatíva alebo iné parametre, ktoré sú súčasťou Záznamov, môže nastať problém so spiatočnou generáciou. Záznam vygenerovaný pre školenie absolvované pred zmenami by totiž nemusel predstavovať korektnú dokumentáciu o jeho absolvovaní.
 
-\subsection{Autenticita potvrdenia}
-Jednoduchý elektronický podpis je používateľsky prívetivý práve svojou jednoduchosťou. Takýto podpis ale podľa definície nie je zaručený.~\cite{navara2021} Preto nie je isté, že ho k dokumentu zadala osoba, ku ktorej sa podpis vzťahuje.
-
-Aby bolo potvrdenie z právneho hľadiska platné, tak ho IS MU automaticky zapečatí svojou pečaťou. Vďaka pečati je zaručený pôvod dokumentu práve z tohto systému. Zo záznamov v systéme je jednoduché preukázať, že bol dokument podpísaný používateľom v autorizovanom režime. Identita majiteľa podpisu je teda preukázaná pomocou znalosti prihlasovacích údajov.
-
-\subsection{Možnosť uchovávania digitálnych spisov}
-Vzhľadom na to, že Potvrdenia sú elektronicky podpísané a zapečatené, nie je potrebné vytvárať ich fyzickú kópiu a odovzdávať ju zodpovednej osobe. Stačí, aby sa v systéme ukladali podpísané Potvrdenia do digitálneho spisu absolventov.
+\section{Zvažované úpravy}
+Veľké množstvo problémov Záznamov je úzko späté s ich fyzickou formou. Preto je hlavným zvažovaným riešením pre IS MU prevod tejto dokumentácie do digitálnej formy, v ktorej by mohli byť procesy jej prevádzky zjednodušené a automatizované.
 
 
+\chapter{Elektronická identifikácia a dôveryhodné služby}
+Nariadenia Európskej únie (ďalej len EÚ) č. 910/2014 a č. 2024/1183 (citované v ich konsolidovanej verzii) o elektronickej identifikácii a dôveryhodných službách pre elektronické transakcie na vnútornom trhu (ďalej len eIDAS) definujú kľúčové pojmy týkajúce sa elektronických podpisov a elektronických pečatí. V nariadeniach sú tieto pojmy vyložené s cieľom zabezpečiť právnu istotu a interoperabilitu elektronických podpisov v rámci členských štátov EÚ.~\cite{eidas2024} Pre správne porozumenie legislatívnych požiadaviek týkajúcich sa elektronických identifikačných prostriedkov je nevyhnutné jasne vymedziť pojmy použité v týchto dokumentoch.
 
-\chapter{Using lightweight markup}
-asdasdas~adsaadasd
-\shorthandoff{-}
-\begin{markdown}[
-  citationNbsps,
-  citations,
-  definitionLists,
-  fencedCode,
-  hashEnumerators,
-  inlineNotes,
-  notes,
-  pipeTables,
-  rawAttribute,
-  tableCaptions,
-]
+\textbf{Elektronický podpis} je v eIDAS definovaný ako akékoľvek dáta v elektronickej podobe, ktoré sú pripojené k iným dátam v elektronickej podobe, alebo sú s nimi logicky spojené a podpisujúca osoba ich používa k podpísaniu.~\cite[čl.~3,~odst.~10]{eidas2024} Elektronický podpis nesmie byť zamietnutý ako dôkaz a nesmú mu byť odopreté právne účinky čisto z dôvodu, že má elektronickú podobu alebo nespĺňa požiadavky kvalifikovaného elektronického podpisu.~\cite[čl.~25,~odst.~1]{eidas2024}
 
-If~you decide that `\LaTeX`{=tex} is too wordy for some parts of your
-document, there are [packages](https://www.ctan.org/pkg/markdown
-"Markdown") that allow you to use more lightweight markup next
-to it.
+Pod pojmom \textbf{fyzická osoba} sa rozumie ľudská bytosť, ktorá je právnym subjektom schopným využívať elektronické identifikačné a dôveryhodné služby. \textbf{Podpisujúca osoba} je definovaná ako fyzická osoba, ktorá vytvára elektronický podpis.~\cite[čl.~3,~odst.~9]{eidas2024}
 
- ![logo](fithesis/logo/mu/fithesis-fi-color "The old-style seal of
-         the Faculty of Informatics")
+\textbf{Elektronická pečať} sú elektronické dáta priamo alebo logicky pripojené k iným dátam v elektronickej podobe za účelom zachovania ich pôvodu a integrity.~\cite[čl.~3,~odst.~25]{eidas2024}
 
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|    12 | 12   | 12      |   12   |
-|   123 | 123  | 123     |   123  |
-|     1 | 1    | 1       |    1   |
+Pojem \textbf{právnická osoba} označuje akúkoľvek entitu, ako je spoločnosť, združenie alebo organizácia, ktorá má právnu spôsobilosť a je uznávaná právom. \textbf{Pečatiaca osoba} je právnická osoba, ktorá vytvára elektronickú pečať.[čl.~3,~odst.~9]{eidas2024}
 
-: This is a table with different types of alignment.
+\textbf{Dáta pre vytváranie elektronických podpisov} sú jedinečné dáta, pomocou ktorých podpisujúca osoba vytvára svoje elektronické podpisy.~\cite[čl.~3,~odst.~13]{eidas2024}
 
-This is a bullet list. Unlike numbered lists, bulleted lists
-contain an **unordered** set of bullet points. When a bullet point
-contains multiple paragraphs, the list is typeset as follows:
+\textbf{Prostriedok pre vytváranie elektronických podpisov} je programové vybavenie alebo technické zariadenie, ktoré sa používa pre vytváranie elektronických podpisov.\cite[čl.~3,~odst.~22]{eidas2024} \textbf{Kvalifikovaný prostriedok pre vytváranie elektronických podpisov} je prostriedok pre vytváranie elektronických podpisov, ktorý spĺňa nasledujúce podmienky~\cite[čl.~3,~odst.~23]{eidas2024}:
 
-  * The first item of a bullet list
-
-    that spans several paragraphs,
-  * the second item of a bullet list,
-  * the third item of a bullet list.
-
-When none of the bullet points contains multiple paragraphs, the
-list has a more compact form:
-
-  * The first item of a bullet list,
-  * the second item of a bullet list,
-  * the third item of a bullet list.
-
-Unlike a bulleted list, a numbered list implies chronology or
-ordering of the bullet points. When a bullet point
-contains multiple paragraphs, the list is typeset as follows:
-
-  1. The first item of an ordered list
-
-     that spans several paragraphs,
-  2. the second item of an ordered list,
-  3. the third item of an ordered list.
-  #. If you are feeling lazy,
-  #. you can use hash enumerators as well.
-
-When none of the bullet points contains multiple paragraphs, the
-list has a more compact form:
-
-  6. The first item of an ordered list,
-  7. the second item of an ordered list,
-  8. the third item of an ordered list.
-
-Definition lists are used to provide definitions of terms. When
-a definition contains multiple paragraphs, the list is typeset
-as follows:
-
-Term 1
-
-:   Definition 1
-
-*Term 2*
-
-:   Definition 2
-
-        Some code, part of Definition 2
-
-    Third paragraph of Definition 2.
-
-When none of the bullet points contains multiple paragraphs, the
-list has a more compact form:
-
-Term 1
-:   Definition 1
-*Term 2*
-:   Definition 2
-
-Block quotations are used to include an excerpt from an external
-document in way that visually clearly separates the excerpt from
-the rest of the work:
-
-> This is the first level of quoting.
->
-> > This is nested blockquote.
->
-> Back to the first level.
-
-Footnotes are used to include additional information to the
-document that are not necessary for the understanding of the main
-text. Here is a footnote reference^[Here is the footnote.] and
-another.[^longnote]
-
-[^longnote]: Here's one with multiple blocks.
-
-    Subsequent paragraphs are indented to show that they
-belong to the previous footnote.
-
-        Some code
-
-    The whole paragraph can be indented, or just the first
-    line.  In this way, multi-paragraph footnotes work like
-    multi-paragraph list items.
-
-Citations are used to provide bibliographical references to other
-documents. This is a regular citation~[@kandova2019, p. 123]. This is
-an in-text citation: @kandova2019. You can also cite several authors
-at once using both regular~[see @kandova2019, p. 123; @kandova2019,
-sec.  3.2; and @kandova2019] and in-text citations: @kandova2019 [p.123;
-@kandova2019, sec. 3.2; @kandova2019].
-
-Code blocks are used to include source code listings into the
-document:
-
-    #include <stdio.h>
-    #include <unistd.h>
-    #include <sys/types.h>
-    #include <sys/wait.h>
-    // This is a comment
-    int main(int argc, char **argv)
-    {
-        while (--c > 1 && !fork());
-        sleep(c = atoi(v[c]));
-        printf("%d\n", c);
-        wait(0);
-        return 0;
-    }
-
-There is an alternative syntax for code blocks that allows you to
-specify additional information, such as the language of the source
-code. This information can be used for syntax highlighting:
-
-``` sh
-#!/bin/sh
-fac() {
-  if [ "$1" -leq 1 ]; then
-    echo 1
-  else
-    echo $(("$1" * fac $(("$1" - 1))))
-  fi
-}
-``````````````
-
-~~~~~~ ruby
-# Here's a way to empty an array.
-joe = [ 'eggs.', 'some', 'break', 'to', 'Have' ]
-print(joe.pop, " ") while joe.size > 0
-print "\n"
-~~~~~~
-
-\end{markdown}
-\shorthandon{-}
-
-\chapter{These are}
-\section{the available}
-\subsection{sectioning}
-\subsubsection{commands.}
-\paragraph{Paragraphs and}
-\subparagraph{subparagraphs are available as well.}
-Inside the text, you can also use unnumbered lists,
 \begin{itemize}
-  \item such as
-  \item this one
-  \begin{itemize}
-    \item     and they can be nested as well.
-    \item[>>] You can even turn the bullets into something fancier,
-    \item[\S] if you so desire.
-  \end{itemize}
+  \item Zaisťuje dôvernosť dát pre vytváranie elektronických podpisov, ktoré boli použité pri vytváraní elektronického podpisu;
+  \item zaisťuje, aby dáta pre vytváranie elektronických podpisov použité pre vytváranie elektronického podpisu mohli byť prakticky použité iba raz;
+  \item zaisťuje neodvoditeľnosť dát pre vytváranie elektronických podpisov použitých pre vytváranie elektronického podpisu~a ochranu elektronického podpisu v súčasnosti dostupnými technickými prostriedkami proti falšovaniu;
+  \item zaisťuje, že podpisujúca osoba mala možnosť spoľahlivo ochrániť dáta pre vytváranie elektronických podpisov použité pre vytváranie elektronického podpisu pred ich zneužitím inou osobou; a
+  \item nemení podpisované dáta~a nebráni tomu, aby tieto dáta boli pred podpísaním predložené podpisujúcej osobe.~\cite[príloha II]{eidas2024}
 \end{itemize}
-Numbered lists are
-\begin{enumerate}
-  \item very
-  \begin{enumerate}
-    \item similar
-  \end{enumerate}
-\end{enumerate}
-and so are description lists:
-\begin{description}
-  \item[Description list]
-    A list of terms with a description of each term
-\end{description}
-The spacing of these lists is geared towards paragraphs of text.
-For lists of words and phrases, the \textsf{paralist} package
-offers commands
-\begin{compactitem}
-  \item that
-  \begin{compactitem}
-    \item are
-    \begin{compactitem}
-      \item better
-      \begin{compactitem}
-        \item suited
-      \end{compactitem}
-    \end{compactitem}
-  \end{compactitem}
-\end{compactitem}
-\begin{compactenum}
-  \item to
-  \begin{compactenum}
-    \item this
-    \begin{compactenum}
-      \item kind of
-      \begin{compactenum}
-        \item content.
-      \end{compactenum}
-    \end{compactenum}
-  \end{compactenum}
-\end{compactenum}
-The \textsf{amsthm} package provides the commands necessary for the
-typesetting of mathematical definitions, theorems, lemmas and
-proofs.
 
-%% We will define several mathematical sectioning commands.
-\newtheorem{theorem}{Theorem}[section] %% The numbering of theorems
-                               %% will be reset after each section.
-\newtheorem{lemma}[theorem]{Lemma}         %% The numbering of lemmas
-\newtheorem{corollary}[theorem]{Corollary} %% and corollaries will
-                               %% share the counter with theorems.
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+Prostriedkom pre vytváranie elektronických podpisov sú napríklad aplikácie umožňujúce tvorenie elektronických podpisov, hardvérové zariadenia obsahujúce dáta pre vytváranie elektronických podpisov alebo biometrické zariadenia používané pre potvrdenie identity podpisujúcej osoby. 
 
-\begin{theorem}
-  This is a theorem that offers a profound insight into the
-  mathematical sectioning commands.
-\end{theorem}
-\begin{theorem}[Another theorem]
-  This is another theorem. Unlike the first one, this theorem has
-  been endowed with a name.
-\end{theorem}
-\begin{lemma}
-  Let us suppose that $x^2+y^2=z^2$. Then
-  \begin{equation}
-    \biggl\langle u\biggm|\sum_{i=1}^nF(e_i,v)e_i\biggr\rangle
-    =F\biggl(\sum_{i=1}^n\langle e_i|u\rangle e_i,v\biggr).
-  \end{equation}
-\end{lemma}
-\begin{proof}
-  $\nabla^2 f(x,y)=\frac{\partial^2f}{\partial x^2}+
-   \frac{\partial^2f}{\partial y^2}$.
-\end{proof}
-\begin{corollary}
-  This is a corollary.
-\end{corollary}
-\begin{remark}
-  This is a remark.
-\end{remark}
+Aby bol elektronický podpis považovaný za \textbf{zaručený elektronický podpis}, musí spĺňať nasledujúce podmienky~\cite[čl.~3,~odst.~11]{eidas2024}:
 
-\chapter{Floats and references}
-\begin{figure}
-  \begin{center}
-    %% PNG and JPG images can be inserted into the document as well,
-    %% but their resolution needs to be adequate. The minimum is
-    %% about 100 pixels per 1 centimeter or 300 pixels per 1 inch.
-    %% That means that a JPG or PNG image typeset at 4 × 4 cm should
-    %% be 400 × 400 px large at the bare minimum.
-    %%
-    %% The optimum is about 250 pixels per 1 centimeter or 600
-    %% pixels per 1 inch. That means that a JPG or PNG image typeset
-    %% at 4 × 4 cm should be 1000 × 1000 px large or larger.
-    \includegraphics[width=6.3cm]{fithesis/logo/mu/fithesis-base-english-color}
-  \end{center}
-  \caption{The logo of the Masaryk University at 6.3\,cm}
-  \label{fig:mulogo1}
-\end{figure}
+\begin{itemize}
+    \item Je jednoznačne spojený s podpisujúcou osobou;
+    \item umožňuje identifikáciu podpisujúcej osoby;
+    \item je vytvorený pomocou dát pre vytváranie elektronických podpisov a podpisujúca osoba tieto dáta dokáže s vysokou úrovňou dôvery použiť pod svojou výhradnou kontrolou; a
+    \item je pripojený k dátam, ktoré podpisuje, takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.~\cite[čl.~26]{eidas2024}
+\end{itemize}
 
-\begin{figure}
-  \begin{center}
-    \begin{minipage}{.5\textwidth}
-      \includegraphics[width=\textwidth]{fithesis/logo/mu/fithesis-base-english-color}
-    \end{minipage}
-    \hfill  % Fill the horizontal space between the images
-    \begin{minipage}{.33\textwidth}
-      \includegraphics[width=\textwidth]{fithesis/logo/mu/fithesis-base-english-color} \\[1em]
-      \includegraphics[width=\textwidth]{fithesis/logo/mu/fithesis-base-english-color}
-    \end{minipage}
-  \end{center}
-\caption{The logo of the Masaryk University at $\frac12$ and
-    $\frac13$ of text width}
-  \label{fig:mulogo2}
-\end{figure}
+\textbf{Dáta pre overovanie platnosti} sú dáta používané k overeniu platnosti elektronického podpisu alebo elektronickej pečate.~\cite[čl.~3,~odst.~40]{eidas2024}
 
-\begin{table}
-  \begin{tabularx}{\textwidth}{lllX}
-    \toprule
-    Day & Min Temp & Max Temp & Summary \\
-    \midrule
-    Monday & $13^{\circ}\mathrm{C}$ & $21^\circ\mathrm{C}$ & A
-    clear day with low wind and no adverse current advisories. \\
-    Tuesday & $11^{\circ}\mathrm{C}$ & $17^\circ\mathrm{C}$ & A
-    trough of low pressure will come from the northwest. \\
-    Wednesday & $10^{\circ}\mathrm{C}$ &
-    $21^\circ\mathrm{C}$ & Rain will spread to all parts during the
-    morning. \\
-    \bottomrule
-  \end{tabularx}
-  \caption{A weather forecast}
-  \label{tab:weather}
-\end{table}
+Za \textbf{službu vytvárajúcu dôveru} sa považuje elektronická služba poskytovaná za finančnú odmenu a zabezpečuje rôzne činnosti súvisiace s elektronickými podpismi a ďalšími službami, ktoré sú nevyhnutné na zaručenie dôvery pri elektronických transakciách.~\cite[čl.~3,~odst.~16]{eidas2024} \textbf{Kvalifikovanou službou vytvárajúcou dôveru} je služba vytvárajúca dôveru, ktorá splňuje použiteľné požiadavky v nariadení eIDAS.~\cite[čl.~3,~odst.~17]{eidas2024}
 
-The logo of the Masaryk University is shown in Figure \ref{fig:mulogo1} and
-Figure \ref{fig:mulogo2} at pages \pageref{fig:mulogo1} and
-\pageref{fig:mulogo2}. The weather forecast is shown in Table
-\ref{tab:weather} at page \pageref{tab:weather}. The following
-chapter is Chapter \ref{chap:matheq} and starts at page
-\pageref{chap:matheq}.  Items \ref{item:star1}, \ref{item:star2},
-and \ref{item:star3} are starred in the following list:
-\begin{compactenum}
-  \item some text
-  \item some other text
-  \item $\star$ \label{item:star1}
-  \begin{compactenum}
-    \item some text
-    \item $\star$ \label{item:star2}
-    \item some other text
-    \begin{compactenum}
-      \item some text
-      \item some other text
-      \item yet another piece of text
-      \item $\star$ \label{item:star3}
-    \end{compactenum}
-    \item yet another piece of text
-  \end{compactenum}
-  \item yet another piece of text
-\end{compactenum}
-If your reference points to a place that has not yet been typeset,
-the \verb"\ref" command will expand to \textbf{??} during the first
-run of
-\texttt{pdflatex \jobname.tex}
-and a second run is going to be needed for the references to
-resolve. With online services -- such as Overleaf -- this is
-performed automatically.
+Pojem \textbf{Poskytovateľ služieb vytvárajúcich dôveru} označuje akúkoľvek fyzickú alebo právnickú osobu, ktorá poskytuje službu vytvárajúcu dôveru.~\cite[čl.~3,~odst.~19]{eidas2024} \textbf{Kvalifikovaný poskytovateľ služieb vytvárajúcich dôveru} je poskytovateľ služieb vytvárajúcich dôveru, ktorý poskytuje kvalifikovanú službu vytvárajúcu dôveru a ktorému bol udelený status kvalifikovaného poskytovateľa orgánom dohľadu.~\cite[čl.~3,~odst.~20]{eidas2024}
 
-\chapter{Mathematical equations}
-\label{chap:matheq}
-\TeX{} comes pre-packed with the ability to typeset inline
-equations, such as $\mathrm{e}^{ix}=\cos x+i\sin x$, and display
-equations, such as \[
-  \mathbf{A}^{-1} = \begin{bmatrix}
-  a & b \\ c & d \\
-  \end{bmatrix}^{-1} =
-  \frac{1}{\det(\mathbf{A})} \begin{bmatrix}
-  \,\,\,d & \!\!-b \\ -c & \,a \\
-  \end{bmatrix} =
-  \frac{1}{ad - bc} \begin{bmatrix}
-  \,\,\,d & \!\!-b \\ -c & \,a \\
-  \end{bmatrix}.
-\] \LaTeX{} defines the automatically numbered \texttt{equation}
-environment:
-\begin{equation}
-  \gamma Px = PAx = PAP^{-1}Px.
-\end{equation}
-The package \textsf{amsmath} provides several additional
-environments that can be used to typeset complex equations:
-\begin{enumerate}
-  \item An equation can be spread over multiple lines using the
-    \texttt{multline} environment:
-    \begin{multline}
-      a + b + c + d + e + f + b + c + d + e + f + b + c + d + e +
-f \\
-      + f + g + h + i + j + k + l + m + n + o + p + q
-    \end{multline}
+\textbf{Certifikát per elektronický podpis} je elektronické potvrdenie, ktoré spojuje dáta pre overovanie platnosti podpisu s fyzickou osobou a potvrdzuje minimálne jej meno alebo pseudonym\footnote{Pseudonym - fiktívne meno používané osobou na skrytie svojej pravej identity}.~\cite[čl.~3,~odst.~14]{eidas2024} \textbf{Kvalifikovaným certifikátom pre elektronický podpis} je každý certifikát pre elektronický podpis, ktorý je vydaný kvalifikovaným poskytovateľom služieb vytvárajúcich dôveru a obsahuje všetky informácie požadované v prílohe I nariadenia eIDAS.~\cites[čl.~3,~odst.~15]{eidas2024}[príloha I]{eidas2024}
 
-  \item Several aligned equations can be typeset using the
-    \texttt{align} environment:
-    \begin{align}
-              a + b &= c + d     \\
-                  u &= v + w + x \\[1ex]
-      i + j + k + l &= m
-    \end{align}
+\textbf{Kvalifikovaný elektronický podpis} je zaručený elektronický podpis, ktorý je vytvorený kvalifikovaným prostriedkom pre vytváranie elektronických podpisov a založený na kvalifikovanom certifikáte pre elektronické podpisy.
 
-  \item The \texttt{alignat} environment is similar to
-    \texttt{align}, but it doesn't insert horizontal spaces between
-    the individual columns:
-    \begin{alignat}{2}
-      a + b + c &+ d       &   &= 0 \\
-              e &+ f + g   &   &= 5
-    \end{alignat}
+\chapter{Úradovňa}
+Všetky návrhy, ktoré budú ďalej v práci preberané sú založené na prepojení aplikácie Bozp so sadou aplikáciou Úradovňa.\footnote{\url{https://is.muni.cz/auth/uradovna/}} Úradovňa v sebe zahŕňa kompletnú spisovú službu, ktorá eviduje komunikáciu medzi školou a ostatnými subjektami, a evidenciu postupu riešenia daných vecí. Ponúka aj možnosť automatickej kontroly, automatického doplňovania údajov a ich hromadného zadávania.~\cite{uradovna2024}
 
-  \item Much like chapter, sections, tables, figures, or list
-    items, equations -- such as \eqref{eq:first} and
-    \eqref{eq:mine} -- can also be labeled and referenced:
-    \begin{alignat}{4}
-      b_{11}x_1 &+ b_{12}x_2  &  &+ b_{13}x_3  &  &             &
-        &= y_1,                   \label{eq:first} \\
-      b_{21}x_1 &+ b_{22}x_2  &  &             &  &+ b_{24}x_4  &
-        &= y_2. \tag{My equation} \label{eq:mine}
-    \end{alignat}
+Úradovňa je primárne určená na ukladanie a správu údajov v elektronickej podobe. K týmto elektronicky evidovaným dátam je ale možné pripojiť aj dokumenty vo fyzickej podobe vrátane naskenovaných verzií dokumentov.~\cite{uradovna2024}
 
-  \item The \texttt{gather} environment makes it possible to
-    typeset several equations without any alignment:
-    \begin{gather}
-      \psi = \psi\psi, \\
-      \eta = \eta\eta\eta\eta\eta\eta, \\
-      \theta = \theta.
-    \end{gather}
+V Úradovni je základnou jednotkou spis. Táto jednotka analogicky k papierovým spisom obsahuje všetky relevantné informácie o určitej záležitosti. K spisu môžu byť pridané atribúty pre upresnenie osôb a vecí, ktorých sa týka. Každý spis sa skladá z úkonov a patrí do jednej agendy.~\cite{uradovna2024}
 
-  \item Several cases can be typeset using the \texttt{cases}
-    environment:
-    \begin{equation}
-      |y| = \begin{cases}
-        \phantom-y & \text{if }z\geq0, \\
-                -y & \text{otherwise}.
-      \end{cases}
-    \end{equation}
-\end{enumerate}
-For the complete list of environments and commands, consult the
-\textsf{amsmath} package manual\footnote{
-  See \url{http://mirrors.ctan.org/macros/latex/required/amsmath/amsldoc.pdf}.
-  The \texttt{\textbackslash url} command is provided by the
-  package \textsf{url}.
-}.
+Úkony predstavujú údaje držané v danom spise. Takisto môžu obsahovať upresňujúce atribúty.~\cite{uradovna2024} Úkonom môže byť napríklad založenie spisu, vloženie dokumentu, ale aj pre túto prácu relevantnejšie podpísanie dokumentu a zapečatenie dokumentu.
 
-\chapter{\textnormal{We \textsf{have} \texttt{several} \textsc{fonts}
-  \textit{at} \textbf{disposal}}}
-The serified roman font is used for the main body of the text.
-\textit{Italics are typically used to denote emphasis or
-quotations.} \texttt{The teletype font is typically used for source
-code listings.} The \textbf{bold}, \textsc{small-caps} and
-\textsf{sans-serif} variants of the base roman font can be used to
-denote specific types of information.
+Agendy sú tvorené spismi, ktoré evidujú záležitosti rovnakého charakteru. Nastavenie agendy určuje, aké atribúty majú spisy a úkony, ktoré do nej spadajú. Každá agenda je následne priradená na správu konkrétnemu pracovisku.~\cite{uradovna2024}
 
-\tiny We \scriptsize can \footnotesize also \small change \normalsize
-the \large font \Large size, \LARGE although \huge it \Huge
-is \huge usually \LARGE not \Large necessary.\normalsize
+Úradovňa takisto ponúka aj nastavenia prístupových práv k udržiavaným dokumentom. Existuje implicitný a explicitný druh práv. Implicitné práva na prístup vznikajú pre osobu, ktorej sa spis týka, a zároveň pre všetky osoby, od ktorých je žiadaný úkon do daného spisu. Explicitné práva sú potrebné pre administratívnu stránku držania dokumentácie. V kontexte dokumentácie školení je najdôležitejším právo j\_spis. Toto právo je viazané na pracovisko a umožňuje čítanie spisov a pridávanie úkonov v jeho agendách.~\cite{uradovna2024}. Pomocou tohto práva je tak možné správcom dokumentácie sprístupniť spisy zamestnancov, za ktorých sú zodpovední.
 
-A wide variety of mathematical fonts is also available, such as: \[
-  \mathrm{ABC}, \mathcal{ABC}, \mathbf{ABC}, \mathsf{ABC},
-  \mathit{ABC}, \mathtt{ABC}
-\] By loading the \textsf{amsfonts} packages, several additional
-fonts will become available: \[
-  \mathfrak{ABC}, \mathbb{ABC}
-\] Many other mathematical fonts are available\footnote{
-  See \url{http://tex.stackexchange.com/a/58124/70941}.
-}.
+\chapter{Návrh možností}
+\label{kap-4}
+Záznamy ako dokumentácia absolvovaných školení so sebou zjavne prinášajú veľké množstvo problémov. Hlavnou motiváciou tejto práce je práve úprava systému tak, aby boli tieto problémy minimalizované alebo úplne odstránené. Za týmto účelom sme preskúmali rôzne možnosti úprav aplikácií v rámci IS MU, ktoré podrobnejšie rozoberieme v tejto kapitole.
 
-\chapter{Inserting the bibliography}
-After linking a bibliography data\-base files to the document using
-the \verb"\"\texttt{thesis\discretionary{-}{}{}setup\{bib\discretionary{=}{=}{=}%
-\{\textit{file1},\textit{file2},\,\ldots\,\}\}} command, you can
-start citing the entries. This is just dummy text
-\parencite{kandova2019} lightly sprinkled with citations
-\parencite[p.~123]{kandova2019}. Several sources can be cited at
-once: \cite{kandova2019,kandova2019,kandova2019}.
-\citetitle{kandova2019} was written by \citeauthor{kandova2019} in
-\citeyear{kandova2019}. We can also produce \textcite{kandova2019}%
-\ or %% Let us define a compound command:
-\def\citeauthoryear#1{(\textcite{#1},~\citeyear{#1})}%
-\citeauthoryear{kandova2019}%
-. The full bibliographic citation is:
-\emph{\fullcite{kandova2019}}. We can easily insert a bibliographic
-citation into the footnote\footfullcite{kandova2019}.
+ 
 
-The \verb"\nocite" command will not generate any
-output\nocite{kandova2019}, but it will insert its arguments into
-the bibliography. The \verb"\nocite{*}" command will insert all the
-records in the bibliography database file into the bibliography.
-Try uncommenting the command
-%% \nocite{*}
-and watch the bibliography section come apart at the seams.
+\section{Presun Záznamov do aplikácie Úradovňa}
+Pôvodný zámer správy Záznamov bol, že po ich vytlačení budú v papierovej forme podpísané školiteľom aj absolventom a následne naskenované a vložené do digitálneho spisu absolventa. Riešenie by využilo funkcionalitu Úradovne pre spracovávanie papierových dokumentov do spisov.
 
-When typesetting the document for the first time, citing a
-\texttt{work} will expand to [\textbf{work}] and the
-\verb"\printbibliography" command will produce no output. It is now
-necessary to generate the bibliography by running \texttt{biber
-\jobname.bcf} from the command line and then by typesetting the
-document again twice. During the first run, the bibliography
-section and the citations will be typeset, and in the second run,
-the bibliography section will appear in the table of contents.
+Záznamy by bolo potrebné označiť, aby sa dali efektívne skenovať a digitálne skladovať. Skenovanie dokumentov v Úradovni funguje pomocou čiarových kódov~\cite{uradovna2024}, a preto by v aplikácii Bozp bolo potrebné implementovať podporu pre tvorbu čiarových kódov, ktoré by boli rozpoznateľné v oboch aplikáciách. Touto úpravou by vznikli elektronické spisy o školeniach, ktoré sú prehľadnejšie a efektívnejšie ako tie fyzické.
 
-The \texttt{biber} command needs to be executed from within the
-directory, where the \LaTeX\ source file is located. In Windows,
-the command line can be opened in a directory by holding down the
-\textsf{Shift} key and by clicking the right mouse button while
-hovering the cursor over a directory.  Select the \textsf{Open
-Command Window Here} option in the context menu that opens shortly
-afterwards.
+Ostatné problémy Záznamov by táto úprava ale vôbec nevyriešila. Záznamy by stále požadovali vytlačenie do papierovej formy, podpísanie školiteľa aj absolventa a vznikla by potreba Záznam naskenovať miesto odovzdania správcovi dokumentácie. 
 
-With online services -- such as Overleaf -- or when using an
-automatic tool -- such as \LaTeX MK -- all commands are executed
-automatically. When you omit the \verb"\printbibliography" command,
-its location will be decided by the template.
+Ďalším závažným problémom riešenia je overenie obsahu skenovaného dokumentu. Spisová služba Úradovne dokáže rozoznať čiarový kód a dokument zaradiť k relevantnému spisu. Nemá ale ako overiť, že daný naskenovaný dokument obsahuje presne to, čo o jeho obsahu tvrdí jeho čiarový kód. Do spisov by sa tak mohli dostať nesprávne alebo falošné dokumenty v prípade, že by boli označené čiarovým kódom pre tento spis.
+
+\section{Digitalizovanie Záznamov a podpis v Úradovni}
+Následne vznikol návrh Záznamy previezť z fyzickej formy do digitálnej a udržiavať ich v Úradovni. Po absolvovaní školenia by bol Záznam digitálne presunutý do spisu absolventa a následne elektronicky podpísaný školiteľom a absolventom.
+
+Oproti predošlému návrhu by tak neboli potrebné žiadne administratívne úkony s fyzickými dokumentami. Správcom dokumentácie by sa v Úradovni ľahšie kontrolovalo, či sú Záznamy podpísané oboma osobami. Zároveň by nebolo Záznamy potrebné skenovať, takže by riešenie eliminovalo problém s overovaním obsahu skenovaného dokumentu. Aplikácia Bozp by iba finálny Záznam interne predala do Úradovne. 
+
+Takáto úprava ale stále nerieši ostatné problémy Záznamov. V prípade úväzkov na viacerých pracoviskách by vznikali komplikácie s vznikom viacerých Záznamov k jednému školeniu. Muselo by vzniknúť viacero rozdielnych Záznamov pre rovnaké školenia a pre každý Záznam by bolo potrebné založiť separátny spis na konkrétnom pracovisku absolventa. Rovnako pretrvávajú aj problémy určovania školiteľa a správcu dokumentácie pre daný Záznam. Vyriešený nie je ani problém dynamickej generácie Záznamov. 
 
   \printbibliography[heading=bibintoc] %% Print the bibliography.
-
-\chapter{Inserting the index}
-After using the \verb"\makeindex" macro and loading the
-\texttt{makeidx} package that provides additional indexing
-commands, index entries can be created by issuing the \verb"\index"
-command. \index{dummy text|(}It is possible to create ranged index
-entries, which will encompass a span of text.\index{dummy text|)}
-To insert complex typographic material -- such as $\alpha$
-\index{alpha@$\alpha$} or \TeX{} \index{TeX@\TeX} --
-into the index, you need to specify a text string, which will
-determine how the entry will be sorted. It is also possible to
-create hierarchal entries. \index{vehicles!trucks}
-\index{vehicles!speed cars}
-
-After typesetting the document, it is necessary to generate the
-index by running
-\begin{center}%
-  \texttt{texindy -I latex -C utf8 -L }$\langle$\textit{locale}%
-  $\rangle$\texttt{ \jobname.idx}
-\end{center}
-from the command line, where $\langle$\textit{locale}$\rangle$
-corresponds to the main locale of your thesis -- such as
-\texttt{english}, and then typesetting the document again.
-
-The \texttt{texindy} command needs to be executed from within the
-directory, where the \LaTeX\ source file is located. In Windows,
-the command line can be opened in a directory by holding down the
-\textsf{Shift} key and by clicking the right mouse button while
-hovering the cursor over a directory. Select the \textsf{Open Command
-Window Here} option in the context menu that opens shortly
-afterwards.
-
-With online services -- such as Overleaf -- the commands are
-executed automatically, although the locale may be erroneously
-detected, or the \texttt{makeindex} tool (which is only able to
-sort entries that contain digits and letters of the English
-alphabet) may be used instead of \texttt{texindy}. In either case,
-the index will be ill-sorted.
-
-  \makeatletter\thesis@blocks@clear\makeatother
-  \phantomsection %% Print the index and insert it into the
-  \addcontentsline{toc}{chapter}{\indexname} %% table of contents.
-  \printindex
-
-\appendix %% Start the appendices.
-\chapter{An appendix}
-Here you can insert the appendices of your thesis.
 
 \end{document}
