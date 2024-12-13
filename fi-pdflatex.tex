@@ -235,7 +235,10 @@ Veľké množstvo problémov Záznamov je úzko späté s ich fyzickou formou. P
 
 
 \chapter{Elektronická identifikácia a dôveryhodné služby}
-Nariadenia Európskej únie (ďalej len EÚ) č. 910/2014 a č. 2024/1183 (citované v ich konsolidovanej verzii) o elektronickej identifikácii a dôveryhodných službách pre elektronické transakcie na vnútornom trhu (ďalej len eIDAS) definujú kľúčové pojmy týkajúce sa elektronických podpisov a elektronických pečatí. V nariadeniach sú tieto pojmy vyložené s cieľom zabezpečiť právnu istotu a interoperabilitu elektronických podpisov v rámci členských štátov EÚ.~\cite{eidas2024} Pre správne porozumenie legislatívnych požiadaviek týkajúcich sa elektronických identifikačných prostriedkov je nevyhnutné jasne vymedziť pojmy použité v týchto dokumentoch.
+\label{kap-4}
+Aby bolo možné dokumentáciu previezť do digitálnej formy, je dôležité, aby boli zachované jej právne účinky. Na tento účel sa v elektronických dokumentoch používajú elektronické podpisy a elektronické pečate, ktoré v tejto kapitole rozoberieme.
+
+Nariadenia Európskej únie (ďalej len EÚ) č. 910/2014 a č. 2024/1183 (citované v ich konsolidovanej verzii) o elektronickej identifikácii a dôveryhodných službách pre elektronické transakcie na vnútornom trhu (ďalej len eIDAS) definujú kľúčové pojmy týkajúce sa elektronických podpisov a elektronických pečatí. V nariadeniach sú tieto pojmy vyložené s cieľom zabezpečiť právnu istotu a interoperabilitu elektronickej identifikácie v rámci členských štátov EÚ.~\cite{eidas2024} Pre správne porozumenie legislatívnych požiadaviek týkajúcich sa elektronických identifikačných prostriedkov je nevyhnutné jasne vymedziť pojmy použité v týchto dokumentoch.
 
 \textbf{Elektronický podpis} je v eIDAS definovaný ako akékoľvek dáta v elektronickej podobe, ktoré sú pripojené k iným dátam v elektronickej podobe, alebo sú s nimi logicky spojené a podpisujúca osoba ich používa k podpísaniu.~\cite[čl.~3,~odst.~10]{eidas2024} Elektronický podpis nesmie byť zamietnutý ako dôkaz a nesmú mu byť odopreté právne účinky čisto z dôvodu, že má elektronickú podobu alebo nespĺňa požiadavky kvalifikovaného elektronického podpisu.~\cite[čl.~25,~odst.~1]{eidas2024}
 
@@ -243,7 +246,7 @@ Pod pojmom \textbf{fyzická osoba} sa rozumie ľudská bytosť, ktorá je právn
 
 \textbf{Elektronická pečať} sú elektronické dáta priamo alebo logicky pripojené k iným dátam v elektronickej podobe za účelom zachovania ich pôvodu a integrity.~\cite[čl.~3,~odst.~25]{eidas2024}
 
-Pojem \textbf{právnická osoba} označuje akúkoľvek entitu, ako je spoločnosť, združenie alebo organizácia, ktorá má právnu spôsobilosť a je uznávaná právom. \textbf{Pečatiaca osoba} je právnická osoba, ktorá vytvára elektronickú pečať.[čl.~3,~odst.~9]{eidas2024}
+Pojem \textbf{právnická osoba} označuje akúkoľvek entitu, ako je spoločnosť, združenie alebo organizácia, ktorá má právnu spôsobilosť a je uznávaná právom. \textbf{Pečatiaca osoba} je právnická osoba, ktorá vytvára elektronickú pečať.~\cite[čl.~3,~odst.~9]{eidas2024}
 
 \textbf{Dáta pre vytváranie elektronických podpisov} sú jedinečné dáta, pomocou ktorých podpisujúca osoba vytvára svoje elektronické podpisy.~\cite[čl.~3,~odst.~13]{eidas2024}
 
@@ -254,8 +257,8 @@ Pojem \textbf{právnická osoba} označuje akúkoľvek entitu, ako je spoločnos
   \item zaisťuje, aby dáta pre vytváranie elektronických podpisov použité pre vytváranie elektronického podpisu mohli byť prakticky použité iba raz;
   \item zaisťuje neodvoditeľnosť dát pre vytváranie elektronických podpisov použitých pre vytváranie elektronického podpisu~a ochranu elektronického podpisu v súčasnosti dostupnými technickými prostriedkami proti falšovaniu;
   \item zaisťuje, že podpisujúca osoba mala možnosť spoľahlivo ochrániť dáta pre vytváranie elektronických podpisov použité pre vytváranie elektronického podpisu pred ich zneužitím inou osobou; a
-  \item nemení podpisované dáta~a nebráni tomu, aby tieto dáta boli pred podpísaním predložené podpisujúcej osobe.~\cite[príloha II]{eidas2024}
-\end{itemize}
+  \item nemení podpisované dáta~a nebráni tomu, aby tieto dáta boli pred podpísaním predložené podpisujúcej osobe.
+\end{itemize}~\cite[príloha II]{eidas2024}
 
 Prostriedkom pre vytváranie elektronických podpisov sú napríklad aplikácie umožňujúce tvorenie elektronických podpisov, hardvérové zariadenia obsahujúce dáta pre vytváranie elektronických podpisov alebo biometrické zariadenia používané pre potvrdenie identity podpisujúcej osoby. 
 
@@ -265,8 +268,8 @@ Aby bol elektronický podpis považovaný za \textbf{zaručený elektronický po
     \item Je jednoznačne spojený s podpisujúcou osobou;
     \item umožňuje identifikáciu podpisujúcej osoby;
     \item je vytvorený pomocou dát pre vytváranie elektronických podpisov a podpisujúca osoba tieto dáta dokáže s vysokou úrovňou dôvery použiť pod svojou výhradnou kontrolou; a
-    \item je pripojený k dátam, ktoré podpisuje, takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.~\cite[čl.~26]{eidas2024}
-\end{itemize}
+    \item je pripojený k dátam, ktoré podpisuje, takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.
+\end{itemize}~\cite[čl.~26]{eidas2024}
 
 \textbf{Dáta pre overovanie platnosti} sú dáta používané k overeniu platnosti elektronického podpisu alebo elektronickej pečate.~\cite[čl.~3,~odst.~40]{eidas2024}
 
@@ -276,10 +279,16 @@ Pojem \textbf{Poskytovateľ služieb vytvárajúcich dôveru} označuje akúkoľ
 
 \textbf{Certifikát per elektronický podpis} je elektronické potvrdenie, ktoré spojuje dáta pre overovanie platnosti podpisu s fyzickou osobou a potvrdzuje minimálne jej meno alebo pseudonym\footnote{Pseudonym - fiktívne meno používané osobou na skrytie svojej pravej identity}.~\cite[čl.~3,~odst.~14]{eidas2024} \textbf{Kvalifikovaným certifikátom pre elektronický podpis} je každý certifikát pre elektronický podpis, ktorý je vydaný kvalifikovaným poskytovateľom služieb vytvárajúcich dôveru a obsahuje všetky informácie požadované v prílohe I nariadenia eIDAS.~\cites[čl.~3,~odst.~15]{eidas2024}[príloha I]{eidas2024}
 
-\textbf{Kvalifikovaný elektronický podpis} je zaručený elektronický podpis, ktorý je vytvorený kvalifikovaným prostriedkom pre vytváranie elektronických podpisov a založený na kvalifikovanom certifikáte pre elektronické podpisy.
+\textbf{Kvalifikovaný elektronický podpis} je zaručený elektronický podpis, ktorý je vytvorený kvalifikovaným prostriedkom pre vytváranie elektronických podpisov a založený na kvalifikovanom certifikáte pre elektronické podpisy.~\cite[čl.~3,~odst.~12]{eidas2024} Z právneho hľadiska má takto definovaný kvalifikovaný elektronický podpis rovnaké právne účinky ako vlastnoručný podpis dokumentu.~\cite[čl.~25,~odst.~2]{eidas2024}
+
+\textbf{Jednoduchý elektronický podpis} je akýkoľvek elektronický podpis, ktorý nespĺňa podmienky kvalifikovaného elektronického podpisu ani zaručeného elektronického podpisu. Príkladom takéhoto podpisu je napríklad sken vlastnoručného podpisu, pripojenie svojho mena na koniec správy alebo potvrdenie identity pomocou stlačenia tlačidla.
+
+Presnejšie vymedzenia platnosti jednotlivých elektronických podpisov si upravujú členské štáty vo vlastnej štátnej legislatíve. Pre potreby dokumentácie školení BOZP a PO je možné použiť akýkoľvek druh elektronického podpisu.~\cite[§~7]{cesko_el_podpisy}
+
 
 \chapter{Úradovňa}
-Všetky návrhy, ktoré budú ďalej v práci preberané sú založené na prepojení aplikácie Bozp so sadou aplikáciou Úradovňa.\footnote{\url{https://is.muni.cz/auth/uradovna/}} Úradovňa v sebe zahŕňa kompletnú spisovú službu, ktorá eviduje komunikáciu medzi školou a ostatnými subjektami, a evidenciu postupu riešenia daných vecí. Ponúka aj možnosť automatickej kontroly, automatického doplňovania údajov a ich hromadného zadávania.~\cite{uradovna2024}
+\label{kap-5}
+Vzhľadom na zvažovaný prevod dokumentácie školení do digitálnej formy je dôležité popísať sadu aplikácií v IS MU pod názvom Úradovňa.\footnote{\url{https://is.muni.cz/auth/uradovna/}} Úradovňa v sebe zahŕňa kompletnú digitálnu spisovú službu, ktorá eviduje komunikáciu medzi školou a ostatnými subjektami, a evidenciu postupu riešenia daných vecí. Ponúka aj možnosť automatickej kontroly, automatického doplňovania údajov a ich hromadného zadávania.~\cite{uradovna2024}
 
 Úradovňa je primárne určená na ukladanie a správu údajov v elektronickej podobe. K týmto elektronicky evidovaným dátam je ale možné pripojiť aj dokumenty vo fyzickej podobe vrátane naskenovaných verzií dokumentov.~\cite{uradovna2024}
 
@@ -292,13 +301,15 @@ Agendy sú tvorené spismi, ktoré evidujú záležitosti rovnakého charakteru.
 Úradovňa takisto ponúka aj nastavenia prístupových práv k udržiavaným dokumentom. Existuje implicitný a explicitný druh práv. Implicitné práva na prístup vznikajú pre osobu, ktorej sa spis týka, a zároveň pre všetky osoby, od ktorých je žiadaný úkon do daného spisu. Explicitné práva sú potrebné pre administratívnu stránku držania dokumentácie. V kontexte dokumentácie školení je najdôležitejším právo j\_spis. Toto právo je viazané na pracovisko a umožňuje čítanie spisov a pridávanie úkonov v jeho agendách.~\cite{uradovna2024}. Pomocou tohto práva je tak možné správcom dokumentácie sprístupniť spisy zamestnancov, za ktorých sú zodpovední.
 
 \chapter{Návrh možností}
-\label{kap-4}
+\label{kap-6}
 Záznamy ako dokumentácia absolvovaných školení so sebou zjavne prinášajú veľké množstvo problémov. Hlavnou motiváciou tejto práce je práve úprava systému tak, aby boli tieto problémy minimalizované alebo úplne odstránené. Za týmto účelom sme preskúmali rôzne možnosti úprav aplikácií v rámci IS MU, ktoré podrobnejšie rozoberieme v tejto kapitole.
 
- 
+Riešenia sú založené na digitalizácii dokumentácie absolvovaných školení. Ako digitálna spisová služba je používaná Úradovňa vysvetlená v kapitole~\hyperref[kap-5]{5}.
+
+Na účely elektronickej identifikácie bol po konzultácii s Právnym odborom MU bol zvolený jednoduchý elektronický podpis, pretože je podľa zákona dostačujúci (vysvetlené v kapitole~\hyperref[kap-4]{4}) a praktickejší pre používateľov, pretože nevyžaduje vlastníctvo špeciálneho certifikátu alebo zariadenia. Zaručený a kvalifikovaný elektronický podpis sú síce bezpečnejšie, avšak ich získanie je náročnejšie z administratívneho aj technického hľadiska, keďže vyžadujú certifikáciu od kvalifikovaných poskytovateľov dôveryhodných služieb a často aj používanie bezpečnostného hardvéru.
 
 \section{Presun Záznamov do aplikácie Úradovňa}
-Pôvodný zámer správy Záznamov bol, že po ich vytlačení budú v papierovej forme podpísané školiteľom aj absolventom a následne naskenované a vložené do digitálneho spisu absolventa. Riešenie by využilo funkcionalitu Úradovne pre spracovávanie papierových dokumentov do spisov.
+Pôvodný zámer správy Záznamov bol, že po ich vytlačení budú v papierovej forme podpísané školiteľom aj absolventom a následne naskenované a vložené do digitálneho spisu absolventa. Riešenie by využilo funkcionalitu aplikácie Úradovňa pre spracovávanie papierových dokumentov do spisov.
 
 Záznamy by bolo potrebné označiť, aby sa dali efektívne skenovať a digitálne skladovať. Skenovanie dokumentov v Úradovni funguje pomocou čiarových kódov~\cite{uradovna2024}, a preto by v aplikácii Bozp bolo potrebné implementovať podporu pre tvorbu čiarových kódov, ktoré by boli rozpoznateľné v oboch aplikáciách. Touto úpravou by vznikli elektronické spisy o školeniach, ktoré sú prehľadnejšie a efektívnejšie ako tie fyzické.
 
