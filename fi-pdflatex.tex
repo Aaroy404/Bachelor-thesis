@@ -385,7 +385,7 @@ V tejto kapitole popíšeme najdôležitejšie časti procesu implementácie Pot
 
 Aplikácia Bozp je v aktívnom prevádzkovom režime. Preto je pri vykonávaní zmien dôležité nenarušiť doterajšiu funkcionalitu, ktorú aplikácia poskytuje, a neznehodnotiť existujúce dáta s ňou spojené.
 
-NIEKDE SPOMENUT MODULY
+NIEKDE SPOMENUT MODULY?
 
 \section{Generácia Potvrdení}
 Finálne Potvrdenia sú dokument formátu PDF. Kvôli ich zložitým formátovacím a vizuálnym prvkom je ale výhodnejšie proces ich generácie rozdeliť na dve fázy.
@@ -396,7 +396,7 @@ V druhej fáze sa z \TeX{} súboru pomocou \TeX-ového servera vytvorí PDF súb
 
 DOPLN OBSAHY A JAZYKY
 
-\section{Úprava kurzov v aplikácii Bozp}
+\section{Úprava školení v aplikácii Bozp}
 Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia Bozp prehľad obsahu vybraného kurzu. K 3 základným častiam popísaným v kapitole~\hyperref[kap-2]{2} je pridaná časť, v ktorej je od frekventanta žiadaný podpis Potvrdenia (pozri obr.~\ref{obr1}).
 
 \begin{figure}
@@ -420,12 +420,40 @@ MOZNO OBRAZOK ODKAZU
 
 Podľa požiadaviek rektorátu MU je príkaz k absolvovaniu školenia, u ktorého je žiadaný podpis frekventanta, považovaný za absolvovaný až po podpísaní dokumentácie o absolvovaní daného školenia. Táto požiadavka je reflektovaná do funkcií, ktoré vyhodnocujú absolvovanie príkazu, kurzu a školenia. Funkcie z databázy načítajú dáta, ktoré určujú, či je od frekventanta požadovaný podpis dokumentácie o absolvovaní školenia. Podmienku o potrebe podpísania Potvrdenia zaradia ako poslednú medzi už existujúce vyhodnocované podmienky absolvovania.
 
-
- 
-
+Samotná podpisová časť v zadaní na jej splnenie žiada frekventanta o podpis Potvrdenia. Frekventantovi zobrazí podpisované údaje, aby ich mohol skontrolovať a aby bol informovaný o obsahu dokumentu, ktorý podpisuje. Pod informáciami sa nachádza tlačidlo s nápisom \enquote{Podepsat}, ktoré Potvrdenie podpíše a odovzdá do spisovej služby Úradovne.
+MOZNO OBRAZOK PODPISOVEJ CASTI
 
 \section{Prepojenie aplikácie Bozp s Úradovňou}
-\section{Kanonické pracovisko}
+Potvrdenia je potrebné uchovávať v spisovej službe. Preto sú po ich podpísaní z aplikácie Bozp posielané do Úradovne. Funkcia Úradovne, ktorá vykoná tento presun, požaduje ako argumenty:
+
+\begin{itemize}
+    \item Identifikačné číslo absolventa;
+    \item názov Potvrdenia;
+    \item dátum absolvovania školenia;
+    \item identifikačné číslo príkazu na absolvovanie školenia;
+    \item Potvrdenie samotné ako dokument na uloženie do spisu; a
+    \item identifikačné číslo pracoviska, ktoré bude spravovať spis Potvrdenia.
+\end{itemize}
+\noindent
+\textbf{Identifikačné číslo absolventa:} na MU je používané Univerzitné číslo osoby (UČO)\footnote{\url{https://it.muni.cz/kategorie/ucty-hesla-a-id-karty}}, ktoré ju jednoznačne identifikuje.
+
+\noindent
+\textbf{Názov Potvrdenia:} Tento názov je použitý aj ako názov spisu. Názov je tvorený spojením názvu školenia a dátumu absolvovania.
+
+\noindent
+\textbf{Dátum absolvovania školenia:} Dátum, od ktorého školenie nadobúda platnosť.
+
+\noindent
+\textbf{Identifikačné číslo príkazu na absolvovanie školenia:} Unikátny číselný kód priradený príkazu, ktorý nariaďuje absolvovanie konkrétneho školenia.
+
+\noindent
+\textbf{Potvrdenie samotné ako dokument na uloženie do spisu:} Finálne nepodpísané Potvrdenie obsahujúce relevantné informácie o absolventovi a absolvovanom školení.
+
+\noindent
+\textbf{Identifikačné číslo pracoviska:} Unikátny kód priradený pracovisku, ktoré spravuje spis Potvrdenia. Toto pracovisko nie je s príkazom ani so školením priamo spojené. Preto ako identifikačné číslo pracoviska používame \textbf{Kanonické pracovisko}.
+
+Kanonické pracovisko 
+
 
 \chapter{Vyhodnotenie nasadenia Potvrdení}
 
