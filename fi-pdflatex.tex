@@ -383,7 +383,9 @@ Je ale nevyhnutné, aby boli spisy v Úradovni stále pod kontrolou správcov do
 \chapter{Implementácia Potvrdení do IS MU}
 V tejto kapitole popíšeme najdôležitejšie časti procesu implementácie Potvrdení do IS MU pomocou úprav v aplikácii Bozp a jej spojením s Úradovňou.
 
-Aplikácia BOZP je v aktívnom prevádzkovom režime. Preto je pri vykonávaní zmien dôležité nenarušiť doterajšiu funkcionalitu, ktorú aplikácia poskytuje, a neznehodnotiť existujúce dáta s ňou spojené.
+Aplikácia Bozp je v aktívnom prevádzkovom režime. Preto je pri vykonávaní zmien dôležité nenarušiť doterajšiu funkcionalitu, ktorú aplikácia poskytuje, a neznehodnotiť existujúce dáta s ňou spojené.
+
+NIEKDE SPOMENUT MODULY
 
 \section{Generácia Potvrdení}
 Finálne Potvrdenia sú dokument formátu PDF. Kvôli ich zložitým formátovacím a vizuálnym prvkom je ale výhodnejšie proces ich generácie rozdeliť na dve fázy.
@@ -395,7 +397,7 @@ V druhej fáze sa z \TeX{} súboru pomocou \TeX-ového servera vytvorí PDF súb
 DOPLN OBSAHY A JAZYKY
 
 \section{Úprava kurzov v aplikácii Bozp}
-Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia Bozp prehľad obsahu vybraného kurzu. K 3 základným častiam popísaným v kapitole~\hyperref[kap-2]{2} je pridaná časť, v ktorej je od frekventanta žiadaný podpis Potvrdenia (pozri obr~\hyperref[obr1]{č.1}).
+Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia Bozp prehľad obsahu vybraného kurzu. K 3 základným častiam popísaným v kapitole~\hyperref[kap-2]{2} je pridaná časť, v ktorej je od frekventanta žiadaný podpis Potvrdenia (pozri obr.~\ref{obr1}).
 
 \begin{figure}
   \begin{center}
@@ -407,14 +409,19 @@ Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia Bozp prehľad o
 
 \noindent
 Časti sú frekventantovi sprístupňované postupne v ich číselnom poradí.
-Podpísanie Potvrdenia o absolvovaní školenia je tým pádom frekventantovi umožnené až po dokončení všetkých ostatných častí kurzu. Podľa požiadaviek rektorátu MU je príkaz k absolvovaniu školenia, u ktorého je žiadaný podpis frekventanta, absolvovaný až po podpísaní dokumentácie o absolvovaní daného školenia.
+Podpísanie Potvrdenia o absolvovaní školenia je tým pádom frekventantovi umožnené až po dokončení všetkých ostatných častí kurzu.
 
-Aplikácia Bozp poskytuje v prípade potreby možnosť sprístupnenia školení bez generácie dokumentácie o jeho absolvovaní. Ak sa žiadna dokumentácia negeneruje, nemôže byť od frekventanta žiadané jej podpísanie. Informácia o tom, či je od frekventanta požadovaný podpis je v databáze držaná so samotným príkazom na absolvovanie školenia a nie pri špecifických školeniach a kurzoch.
+Aplikácia Bozp poskytuje v prípade potreby možnosť prikázania školenia bez generácie dokumentácie o jeho absolvovaní. Ak sa žiadna dokumentácia negeneruje, nemôže byť od frekventanta žiadané jej podpísanie. Informácia o tom, či je od frekventanta požadovaný podpis je v databáze držaná so samotným príkazom na absolvovanie školenia a nie pri špecifických školeniach a kurzoch.
+
+Funkcia pre zobrazovanie prehľadu kurzu pred implementáciou Potvrdení zisťovala relevantné informácie iba z databázových záznamov relevantného kurzu a školenia. Pre správne vyhodnocovacie, či má medzi časti zaradiť aj podpis Potvrdenia, bolo potrebné do procesu pridať aj informácie o konkrétnom príkaze frekventanta. Podpisová časť sa tým pádom frekventantovi zobrazí iba v prípade, že to je od neho požadované z príkazu k absolvovaniu školenia.
+
+Okrem prístupu do podpisovej časti cez prehľad obsahu kurzu je frekventantovi poskytnutý odkaz priamo na túto časť v prípade, že splnil všetky ostatné časti kurzu. Táto úprava má za úmysel minimalizovať počet prechodov kurzami, ktoré majú dokončené ostatné časti kurzu a na absolvovanie príkazu chýba už iba podpísať Potvrdenie.
+MOZNO OBRAZOK ODKAZU
+
+Podľa požiadaviek rektorátu MU je príkaz k absolvovaniu školenia, u ktorého je žiadaný podpis frekventanta, považovaný za absolvovaný až po podpísaní dokumentácie o absolvovaní daného školenia. Táto požiadavka je reflektovaná do funkcií, ktoré vyhodnocujú absolvovanie príkazu, kurzu a školenia. Funkcie z databázy načítajú dáta, ktoré určujú, či je od frekventanta požadovaný podpis dokumentácie o absolvovaní školenia. Podmienku o potrebe podpísania Potvrdenia zaradia ako poslednú medzi už existujúce vyhodnocované podmienky absolvovania.
 
 
-
-
-
+ 
 
 
 \section{Prepojenie aplikácie Bozp s Úradovňou}
