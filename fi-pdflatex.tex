@@ -181,6 +181,9 @@ Hlavné moduly pre chod aplikácie sú štyri a každý z nich má svoj špecifi
     \item \textbf{Správcovský modul} – obsahuje funkcionalitu správcovských aplikácií školení.
 \end{itemize}
 
+\noindent
+Aplikácia dokáže školenia prikazovať automaticky. Príkazy zakladá pomocou \textbf{pravidiel}, ktoré definujú správcovia školení.~\cite[15]{kandova2019}
+
 \section{Vysoké množstvo dokumentácie o školeniach}
 Vzhľadom na povinnosť zamestnávateľa udržiavať dokumentáciu o školeniach je relevantné zistiť koľko variánt školení systém obsahuje a ako často vzniká zamestnancom príkaz na ich absolvovanie. Zistenia sú následne relevantné pre rozhodnutia o forme a udržateľnosti spisov tejto dokumentácie.
 
@@ -196,7 +199,7 @@ Podľa smernice rektora MU je pre všetkých zamestnancov MU súčasťou povinn�
 
 Tieto školenia majú obmedzenú platnosť. Preto je potrebné priebežne opakovať ich absolvovanie. Frekvencia opakovania je u školení pre vedúcich zamestnancov stanovená na 3 roky~\cites[sekcia~3.2.4,~bod~b)]{smernice_rektora_bozp}[čl.~4,~odst.~2~bod~c)]{smernice_mu_po}. U nevedúcich zamestnancov je táto frekvencia stanovená na 2 roky~\cites[sekcia~3.2.2,~bod~1.]{smernice_rektora_bozp}[čl.~10,~odst.~2]{smernice_mu_po}.
 
-Príkazov tak vzniká veľké množstvo nie len pri prijatí nových zamestnancov, ale aj kvôli postupnému opakovaniu školení po uplynutí ich platnosti. Každé novo absolvované školenie vyžaduje vznik novej dokumentácii o jeho absolvovaní.
+Príkazov na absolvovanie školení tak vzniká veľké množstvo nie len pri prijatí nových zamestnancov, ale aj kvôli postupnému opakovaniu školení po uplynutí ich platnosti. Každé novo absolvované školenie vyžaduje vznik novej dokumentácii o jeho absolvovaní.
 
 \chapter{Dokumentácia školení v IS MU}
 \label{kap-3}
@@ -227,7 +230,7 @@ Môže nastať situácia, že zamestnanec školenie absolvuje a počas jeho plat
 \section{Skupiny školení v Záznamoch}
 Záznamy vyžadujú veľké množstvo administratívnych úkonov spojených s ich uchovávaním. Preto bola na Záznamy stanovená požiadavka, aby mohli obsahovať viacero školení, čím sa ich počet zníži.
 
-Niektoré školenia ale nemôžu spolu patriť do jedného Záznamu. Separátne musia byť napríklad obecné a špecifické školenia, pretože ich treba odovzdávať na iné pracoviská a iným správcom dokumentácie. Provozní odboru MU zároveň požiadal, aby školenie pre vodičov nebolo na rovnakom Zozname ako školenia BOZP a PO. Preto sú školenia rozdelené do takzvaných záznamových skupín, ktoré určujú, či môžu byť dve školenia zahrnuté do rovnakého Záznamu.
+Niektoré školenia ale nemôžu spolu patriť do jedného Záznamu. Separátne musia byť napríklad obecné a špecifické školenia, pretože ich treba odovzdávať na iné pracoviská a iným správcom dokumentácie. Prevádzkový odbor rektorátu MU zároveň požiadal, aby školenie pre vodičov nebolo na rovnakom Zozname ako školenia BOZP a PO. Preto sú školenia rozdelené do takzvaných záznamových skupín, ktoré určujú, či môžu byť dve školenia zahrnuté do rovnakého Záznamu.
 
 \section{Problémy so Záznamami}
 Záznamy sú síce z právneho hľadiska plne platné, ale spôsob ich generácie a uchovávania so sebou prináša veľké množstvo komplikácií, ktoré ich robia neefektívnymi.
@@ -450,10 +453,36 @@ Potvrdenia je potrebné uchovávať v spisovej službe. Preto sú po ich podpís
 \textbf{Potvrdenie samotné ako dokument na uloženie do spisu:} Finálne nepodpísané Potvrdenie obsahujúce relevantné informácie o absolventovi a absolvovanom školení.
 
 \noindent
-\textbf{Identifikačné číslo pracoviska:} Unikátny kód priradený pracovisku, ktoré spravuje spis Potvrdenia. Toto pracovisko nie je s príkazom ani so školením priamo spojené. Preto ako identifikačné číslo pracoviska používame \textbf{Kanonické pracovisko}.
+\textbf{Identifikačné číslo pracoviska:} Unikátny kód priradený pracovisku, ktoré spravuje spis Potvrdenia.
 
-Kanonické pracovisko 
-
+\subsection*{Kanonické pracovisko}
+Pracovisko, ktoré má spravovať spis Potvrdenia nie je s príkazom ani so školením priamo spojené. Preto ako identifikačné číslo pracoviska používame algoritmicky spočítané \textbf{kanonické pracovisko}.
+\begin{description}
+    \item[Kanonické pracovisko] je určené na základe nasledujúceho postupu:
+    \begin{enumerate}
+        \item \textbf{Ak má frekventant jedno alebo viac kmeňových pracovísk na MU:}
+        \begin{itemize}
+            \item Z týchto pracovísk sa vyberie to, ktoré má najdlhšie identifikačné číslo.
+            \item Ak existuje viacero pracovísk s rovnakou dĺžkou identifikačného čísla, vyberie sa to s numericky najmenším číslom.
+        \end{itemize}
+        \item \textbf{Ak frekventant nemá kmeňové pracovisko na MU:}
+        \begin{itemize}
+            \item Postupuje sa rovnako ako v bode 1, ale výber sa uskutoční zo všetkých (aj nekmeňových) pracovísk frekventanta na MU.
+        \end{itemize}
+        \item \textbf{Ak frekventant nemá žiadne známe pracovisko na MU:}
+        \begin{itemize}
+            \item Použije sa pracovisko MU špecifikované v pravidle, podľa ktorého vznikol príkaz na absolvovanie školenia.
+        \end{itemize}
+        \item \textbf{Ak takéto pravidlo neexistuje:}
+        \begin{itemize}
+            \item Tak sa použije podľa bodov 1, 2 a 3 spočítané pracovisko osoby, ktorá príkaz založila.
+        \end{itemize}
+        \item \textbf{Ak osoba, ktorá príkaz založila, nie je známa alebo sa nepodarilo spočítať jej pracovisko:}
+        \begin{itemize}
+            \item Použije sa predvolené pracovisko, ktorým je Prevádzkový odbor rektorátu MU.
+        \end{itemize}
+    \end{enumerate}
+\end{description}
 
 \chapter{Vyhodnotenie nasadenia Potvrdení}
 
