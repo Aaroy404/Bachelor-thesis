@@ -28,7 +28,7 @@
                %% with `colorbold` to use blue for bold text.
   lof,         %% The `lof` option prints the List of Figures. Replace
                %% with `nolof` to hide the List of Figures.
-  lot,         %% The `lot` option prints the List of Tables. Replace
+  nolot,         %% The `lot` option prints the List of Tables. Replace
                %% with `nolot` to hide the List of Tables.
 ]{fithesis4}
 %% The following section sets up the locales used in the thesis.
@@ -166,8 +166,20 @@ Frekventanti sa k absolvovaniu školenia dostanú pomocou aplikácie Bozp.
 \begin{enumerate}
     \item \textbf{Prezentácia} – obsahuje hlavný výklad a vizuálne materiály.
     \item \textbf{Súbory na stiahnutie} – textové dokumenty, ktoré si účastníci musia stiahnuť a prečítať.
-    \item \textbf{Otázky} – test, ktorý musia účastníci správne zodpovedať na overenie porozumenia školenia.
-\end{enumerate}~\cite[19]{kandova2019}
+    \item \textbf{Otázky} – test, ktorý musia účastníci správne zodpovedať na overenie porozumenia školenia.~\cite[19]{kandova2019}
+\end{enumerate}
+
+\noindent
+Hlavný vývojový jazyk IS MU je Perl. Dáta sa ukladajú v databáze Oracle a webové skripty spravuje server Apache. Funkcionalita aplikácie Bozp je obsiahnutá v Perlových moduloch a podporných súboroch v jazykoch Javascript a CSS.
+
+Hlavné moduly pre chod aplikácie sú štyri a každý z nich má svoj špecifický účel:
+
+\begin{itemize}
+    \item \textbf{Generický modul} – obsahuje základnú funkcionalitu potrebnú vo všetkých moduloch.
+    \item \textbf{Modul pre kurzy} – skladá sa z funkcií potrebných pre správny chod zobrazovania a absolvovania školení a kurzov.
+    \item \textbf{Cron modul} – funkcie v ňom sú spúšťané pravidelne a periodicky napríklad pomocou skriptov\footnote{Jednoduchý program alebo súbor s inštrukciami, ktoré sú vykonávané postupne bez potreby manuálnej kompilácie.} spúšťaných cez noc.
+    \item \textbf{Správcovský modul} – obsahuje funkcionalitu správcovských aplikácií školení.
+\end{itemize}
 
 \section{Vysoké množstvo dokumentácie o školeniach}
 Vzhľadom na povinnosť zamestnávateľa udržiavať dokumentáciu o školeniach je relevantné zistiť koľko variánt školení systém obsahuje a ako často vzniká zamestnancom príkaz na ich absolvovanie. Zistenia sú následne relevantné pre rozhodnutia o forme a udržateľnosti spisov tejto dokumentácie.
@@ -264,9 +276,10 @@ Pojem \textbf{právnická osoba} označuje akúkoľvek entitu, ako je spoločnos
   \item zaisťuje, aby dáta pre vytváranie elektronických podpisov použité pre vytváranie elektronického podpisu mohli byť prakticky použité iba raz;
   \item zaisťuje neodvoditeľnosť dát pre vytváranie elektronických podpisov použitých pre vytváranie elektronického podpisu~a ochranu elektronického podpisu v súčasnosti dostupnými technickými prostriedkami proti falšovaniu;
   \item zaisťuje, že podpisujúca osoba mala možnosť spoľahlivo ochrániť dáta pre vytváranie elektronických podpisov použité pre vytváranie elektronického podpisu pred ich zneužitím inou osobou; a
-  \item nemení podpisované dáta~a nebráni tomu, aby tieto dáta boli pred podpísaním predložené podpisujúcej osobe.
-\end{itemize}~\cite[príloha II]{eidas2024}
+  \item nemení podpisované dáta~a nebráni tomu, aby tieto dáta boli pred podpísaním predložené podpisujúcej osobe.~\cite[príloha II]{eidas2024}
+\end{itemize}
 
+\noindent
 Prostriedkom pre vytváranie elektronických podpisov sú napríklad aplikácie umožňujúce tvorenie elektronických podpisov, hardvérové zariadenia obsahujúce dáta pre vytváranie elektronických podpisov alebo biometrické zariadenia používané pre potvrdenie identity podpisujúcej osoby. 
 
 Aby bol elektronický podpis považovaný za \textbf{zaručený elektronický podpis}, musí spĺňať nasledujúce podmienky~\cite[čl.~3,~odst.~11]{eidas2024}:
@@ -275,9 +288,10 @@ Aby bol elektronický podpis považovaný za \textbf{zaručený elektronický po
     \item Je jednoznačne spojený s podpisujúcou osobou;
     \item umožňuje identifikáciu podpisujúcej osoby;
     \item je vytvorený pomocou dát pre vytváranie elektronických podpisov a podpisujúca osoba tieto dáta dokáže s vysokou úrovňou dôvery použiť pod svojou výhradnou kontrolou; a
-    \item je pripojený k dátam, ktoré podpisuje, takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.
-\end{itemize}~\cite[čl.~26]{eidas2024}
+    \item je pripojený k dátam, ktoré podpisuje, takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.~\cite[čl.~26]{eidas2024}
+\end{itemize}
 
+\noindent
 \textbf{Dáta pre overovanie platnosti} sú dáta používané k overeniu platnosti elektronického podpisu alebo elektronickej pečate~\cite[čl.~3,~odst.~40]{eidas2024}.
 
 Za \textbf{službu vytvárajúcu dôveru} sa považuje elektronická služba poskytovaná za finančnú odmenu a zabezpečuje rôzne činnosti súvisiace s elektronickými podpismi a ďalšími službami, ktoré sú nevyhnutné na zaručenie dôvery pri elektronických transakciách~\cite[čl.~3,~odst.~16]{eidas2024}. \textbf{Kvalifikovanou službou vytvárajúcou dôveru} je služba vytvárajúca dôveru, ktorá splňuje použiteľné požiadavky v nariadení eIDAS~\cite[čl.~3,~odst.~17]{eidas2024}.
@@ -360,22 +374,53 @@ Jednoduchý elektronický podpis takisto nezaručuje integritu podpísaného dok
 \subsection{Uchovávanie}
 Potvrdenia, ako dokumentáciu o absolvovaných školeniach, má zamestnávateľ povinnosť dlhodobo udržiavať. Záznamy na tento účel používajú fyzické spisy, ktoré spravujú správcovia dokumentácie. Potvrdenia sú ale plne funkčné v digitálnej forme. Na ich správu nie je potrebné ich papierové formy udržiavať vo fyzických spisoch.
 
-Namiesto fyzických spisov sú Potvrdenia držané v digitálnych spisoch Úradovne. Aplikácia Bozp po dokončení kurzu vytvorí Potvrdenie a poskytne ho frekventantovi na podpísanie. V momente, ako frekventant Potvrdenie podpíše, je dokument interne predaný z aplikácie Bozp do Úradovne. Tá spojí dokument s podpisovou doložkou, ktorá obsahuje všetky relevantné informácie o jednoduchom elektronickom podpise absolventa, a pridá k dokumentu hlavičku obsahujúcu informácie o relevantnom spise vrátane jeho čiarového kódu. Následne dokument zapečatí kvalifikovanou pečaťou IS MU a v tejto forme udržiava v spise. V spise sú držané všetky úkony, ktoré boli vykonané, a pečať garantuje pôvod a integritu finálneho dokumentu.
+Namiesto fyzických spisov sú Potvrdenia držané v digitálnych spisoch Úradovne. Aplikácia Bozp po dokončení kurzu vytvorí Potvrdenie a poskytne ho frekventantovi na podpísanie. V momente, ako frekventant Potvrdenie podpíše, je dokument interne predaný z aplikácie Bozp do Úradovne. Tá spojí dokument s podpisovou doložkou, ktorá obsahuje všetky relevantné informácie o jednoduchom elektronickom podpise absolventa, a pridá k dokumentu formálne náležitosti spisovej služby vrátane čiarového kódu pre jeho identifikáciu. Následne dokument zapečatí kvalifikovanou pečaťou IS MU a v tejto forme udržiava v spise. V spise sú držané všetky úkony, ktoré boli vykonané, a pečať garantuje pôvod a integritu finálneho dokumentu.
 
 Záznamy museli byť odovzdávané na všetky kmeňové pracoviská zamestnanca alebo prípadne na všetky pracoviská zamestnanca požadujúce školenia na danom Zázname. Pri Potvrdeniach vďaka ich digitálnej forme a dostupnosti nie je nutné vytvárať takéto kópie. Namiesto toho je jediný dokument vygenerovaný a uložený v spise Úradovne. Tento spis je spojený s jedným vybraným pracoviskom absolventa. Ostatné pracoviská, ktoré toto Potvrdenie požadujú, dostanú právo na prístup k danému spisu. Týmto spôsobom sú oveľa jednoduchšie vyriešené komplikácie pri vzniku úväzku na inom pracovisku MU, ktoré od zamestnanca požaduje akékoľvek ním už absolvované školenie.
 
 Je ale nevyhnutné, aby boli spisy v Úradovni stále pod kontrolou správcov dokumentácie. Preto je dôležité pre každé pracovisko, ktoré bude takéto spisy udržiavať, vybrať osobu zodpovednú za túto dokumentáciu a prideliť jej práva na požadované administratívne úkony.
 
 \chapter{Implementácia Potvrdení do IS MU}
-V tejto kapitole popíšeme celý proces implementácie Potvrdení do IS MU pomocou úprav v aplikácii Bozp a jej spojením s Úradovňou.
+V tejto kapitole popíšeme najdôležitejšie časti procesu implementácie Potvrdení do IS MU pomocou úprav v aplikácii Bozp a jej spojením s Úradovňou.
+
+Aplikácia BOZP je v aktívnom prevádzkovom režime. Preto je pri vykonávaní zmien dôležité nenarušiť doterajšiu funkcionalitu, ktorú aplikácia poskytuje, a neznehodnotiť existujúce dáta s ňou spojené.
 
 \section{Generácia Potvrdení}
+Finálne Potvrdenia sú dokument formátu PDF. Kvôli ich zložitým formátovacím a vizuálnym prvkom je ale výhodnejšie proces ich generácie rozdeliť na dve fázy.
+
+V prvej fáze sa vytvorí súbor vo formáte \TeX. Tento súbor je generovaný pomocou šablóny potvrdenia v jazyku \TeX. Následne sa z databázy načítajú dôležité informácie o absolventovi a jeho absolvovanom školení. Špecifické dáta sú vložené na vyhradené miesta v šablóne potvrdenia.
+
+V druhej fáze sa z \TeX{} súboru pomocou \TeX-ového servera vytvorí PDF súbor, ktorý je pre používateľov vizuálne prehľadnejší a ľahšie zrozumiteľný. Tento PDF súbor predstavuje finálnu nepodpísanú verziu Potvrdenia.
+
+DOPLN OBSAHY A JAZYKY
 
 \section{Úprava kurzov v aplikácii Bozp}
+Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia Bozp prehľad obsahu vybraného kurzu. K 3 základným častiam popísaným v kapitole~\hyperref[kap-2]{2} je pridaná časť, v ktorej je od frekventanta žiadaný podpis Potvrdenia (pozri obr~\hyperref[obr1]{č.1}).
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=\textwidth]{prehledtestovnehokurzu.png}
+  \end{center}
+  \caption{Prehľad testovacieho kurzu prvej pomoc v aplikácii Bozp}
+  \label{obr1}
+\end{figure}
+
+\noindent
+Časti sú frekventantovi sprístupňované postupne v ich číselnom poradí.
+Podpísanie Potvrdenia o absolvovaní školenia je tým pádom frekventantovi umožnené až po dokončení všetkých ostatných častí kurzu. Podľa požiadaviek rektorátu MU je príkaz k absolvovaniu školenia, u ktorého je žiadaný podpis frekventanta, absolvovaný až po podpísaní dokumentácie o absolvovaní daného školenia.
+
+Aplikácia Bozp poskytuje v prípade potreby možnosť sprístupnenia školení bez generácie dokumentácie o jeho absolvovaní. Ak sa žiadna dokumentácia negeneruje, nemôže byť od frekventanta žiadané jej podpísanie. Informácia o tom, či je od frekventanta požadovaný podpis je v databáze držaná so samotným príkazom na absolvovanie školenia a nie pri špecifických školeniach a kurzoch.
+
+
+
+
+
+
+
 \section{Prepojenie aplikácie Bozp s Úradovňou}
 \section{Kanonické pracovisko}
-\section{Vizuálna stránka}
 
+\chapter{Vyhodnotenie nasadenia Potvrdení}
 
 \printbibliography[heading=bibintoc] %% Print the bibliography.
 
