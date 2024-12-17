@@ -69,7 +69,13 @@
   pramene a literatúru, ktoré som pri vypracovaní
   používal\thesis@slovak@gender@koncovka\ alebo z~nich
   čerpal\thesis@slovak@gender@koncovka, v~práci riadne citujem
-  s~uvedením úplného odkazu na príslušný zdroj.}
+  s~uvedením úplného odkazu na príslušný zdroj.\\\\  
+  \noindent Pri príprave tejto práce som použil\thesis@slovak@gender@koncovka\ tieto nástroje umelej inteligencie:
+\begin{itemize}
+  \setlength\itemsep{0.1em}
+      \item ChatGPT na zlepšenie štýlu.
+  \end{itemize}
+Prehlasujem, že som tieto nástroje použil\thesis@slovak@gender@koncovka\ v súlade s princípmi akademickej integrity, ich výstupy som skontroloval\thesis@slovak@gender@koncovka\ a preberám za ne plnú zodpovednosť.}
 
 \gdef\thesis@slovak@typeName@proposal{Tézy dizertačnej práce}
 \gdef\thesis@slovak@typeName@akuzativ@proposal{Tézy dizertačnej práce}
