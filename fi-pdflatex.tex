@@ -62,10 +62,10 @@
     TeXkeywords = {elektronický podpis, dokumentácia školení, bezpečnosť a ochrana zdravia pri práci, BOZP, požiarna ochrana, PO, elektronické školenie, informačný systém
 },
     abstract    = {%
-Práca sa zaoberá implementáciou jednoduchého elektronického podpisu pre dokumentáciu školení bezpečnosti a ochrany zdravia pri práci a požiarnej ochrany v Informačnom systéme Masarykovej univerzity (IS MU). Riešenie umožňuje digitálne podpisovanie potvrdení o absolvovaní školení priamo v aplikácii Bozp, pričom je zabezpečený súlad so zákonnými požiadavkami na dokumentáciu školení a elektronické podpisy. Prevod dokumentácie do digitálnej formy znižuje administratívnu záťaž pre absolventov aj správcov školení a zefektívňuje správu dokumentácie v IS MU.
+Práca sa zaoberá implementáciou jednoduchého elektronického podpisu pre dokumentáciu školení bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a požiarnej ochrany (ďalej len PO) v Informačnom systéme Masarykovej univerzity (ďalej len IS MU). Riešenie umožňuje digitálne podpisovanie potvrdení o absolvovaní školení priamo v aplikácii BOZP, pričom je zabezpečený súlad so zákonnými požiadavkami na dokumentáciu školení a elektronické podpisy. Prevod dokumentácie do digitálnej formy znižuje administratívnu záťaž pre absolventov aj správcov školení a zefektívňuje správu dokumentácie v IS MU.
     },
     thanks      = {%
-Ďakujem docentovi Michalovi Brandejsovi za odborné vedenie mojej bakalárskej práce. Rovnako ďakujem všetkým svojim kolegom za kvalitnú spoluprácu pri úpravách systému a za všetky ich užitočné rady. Poďakovanie by som chcel venovať aj všetkým kamarátom, ktorý ma počas práce podporovali.
+Ďakujem docentovi Michalovi Brandejsovi za odborné vedenie mojej bakalárskej práce. Rovnako ďakujem všetkým svojim kolegom za kvalitnú spoluprácu pri úpravách systému a za všetky ich užitočné rady. Poďakovanie by som chcel venovať aj rodine a kamarátom za ich podporu.
     },
     bib         = example.bib,
     %% Remove the following line to use the JVS 2018 faculty logo.
@@ -108,13 +108,13 @@ Práca sa zaoberá implementáciou jednoduchého elektronického podpisu pre dok
 \addcontentsline{toc}{chapter}{Úvod}
 Jednou z dôležitých požiadaviek na prevádzku školení bezpečnosti a ochrany zdravia pri práci (ďalej len BOZP) a požiarnej ochrany (ďalej len PO) je udržiavanie dokumentácie o ich absolvovaní frekventantmi.
 
-Z právnych dôvodov musí byť preukázateľné, že bol daný frekventant korektne zaškolený vo všetkých preňho relevantných smeroch. Aby bola takáto dokumentácia právne nevyvrátiteľná, musí byť schválená ako absolventom školenia, tak aj jeho školiteľom. Informačný systém Masarykovej univerzity (IS MU) používa na tento účel fyzický podpis oboch entít.
+Z právnych dôvodov musí byť preukázateľné, že bol daný frekventant korektne zaškolený vo všetkých preňho relevantných smeroch. Aby bola takáto dokumentácia právne nevyvrátiteľná, musí byť schválená ako absolventom školenia, tak aj jeho školiteľom. Informačný systém Masarykovej univerzity (ďalej len IS MU) používa na tento účel fyzický podpis oboch entít.
 
-Cieľom tejto práce je previezť proces schvaľovania dokumentácie o absolvovaní školení na Masarykovej univerzite (MU) do online formy. Za týmto účelom je nevyhnutná implementácia potvrdení s jednoduchým elektronickým podpisom. Súčasťou práce je aj následný prevod spisov tejto dokumentácie do elektronickej formy. Tieto zmeny uľahčia prácu všetkým zúčastneným stranám prevádzky školení.
+Cieľom tejto práce je previesť proces schvaľovania dokumentácie o absolvovaní školení na Masarykovej univerzite (ďalej len MU) do online formy. Za týmto účelom je nevyhnutná implementácia potvrdení s jednoduchým elektronickým podpisom. Súčasťou práce je aj následný prevod spisov tejto dokumentácie do elektronickej formy. Tieto zmeny uľahčia prácu všetkým zúčastneným stranám prevádzky školení.
 
 Najprv sme preštudovali právne požiadavky na školenia BOZP a PO v kapitole~\hyperref[kap-1]{1} a spôsob prevádzky týchto školení v IS MU v kapitole~\hyperref[kap-2]{2}. Následne sme v kapitole~\hyperref[kap-3]{3} bližšie preskúmali spôsob dokumentácie školení v IS MU a ich nedostatky. Kapitola~\hyperref[kap-4]{4} obsahuje dôležité teoretické základy elektronických podpisov a pečatí. V kapitole~\hyperref[kap-5]{5} sú uvedené relevantné informácie o sade aplikácií pod názvom Úradovňa. Kapitola~\hyperref[kap-6]{6} sa zaoberá možnými riešeniami problémov dokumentácie spomínaných v kapitole~\hyperref[kap-3]{3}. Nakoniec je v kapitole~\hyperref[kap-7]{7} popísaný proces implementácie potvrdení s jednoduchým elektronickým podpisom do systému IS MU.
 
-Výsledné úpravy systému umožňujú frekventantom potvrdiť absolvovanie školenia priamo v IS MU v aplikácii Bozp a zaručujú schválenie školiteľa, ktorým je po týchto úpravách IS MU. Nové potvrdenia o absolvovaní školenia podpísané elektronicky spĺňajú všetky požiadavky na spravovanie dokumentácie BOZP a PO.
+Výsledné úpravy systému umožňujú frekventantom potvrdiť absolvovanie školenia priamo v IS MU a zaručujú schválenie školiteľa, ktorým je po týchto úpravách IS MU. Nové potvrdenia o absolvovaní školenia podpísané elektronicky spĺňajú všetky požiadavky na spravovanie dokumentácie BOZP a PO.
 
 
 \chapter{Školenia BOZP a PO}
@@ -143,7 +143,7 @@ Presný obsah školení nie je zákonom definovaný. Definované sú iba záchyt
 
 K väčšiemu počtu variánt školení prispieva aj fakt, že školenia PO musia byť špecificky upravené pre vedúcich zamestnancov a pre ostatných zamestnancov~\cite[~§16~odst.~2]{cesko_zakon_pozarni_ochrana}. Častokrát tak vznikajú dve verzie k školeniam viazaným na rovnaké pracovisko a pracovnú náplň.
 
-Varianty školení môžu byť označené svojim číslom osnovy. Toto číslo zamestnávateľom obvykle dodáva odborný špecialista BOZP. Pomocou čísla osnovy je následne možné určiť, akým obsahom bol frekventant preškolený. Z tohto dôvodu sa označenie pridáva do dokumentácie o absolvovanom školení, ktorý frekventant a školiteľ podpisujú.
+Varianty školení môžu byť označené svojim číslom osnovy. Toto číslo zamestnávateľom obvykle dodáva odborný špecialista BOZP. Pomocou čísla osnovy je následne možné určiť, akým obsahom bol frekventant preškolený. Z tohto dôvodu sa označenie pridáva do dokumentácie o absolvovanom školení, ktorú frekventant a školiteľ podpisujú.
 
 \section{Dokumentácia školení}
 Zamestnávateľ je od zákona povinný udržiavať dokumentáciu o tom, že frekventanti absolvovali školenia BOZP a PO~\cites[§~103~odst.~3]{cesko_zakonik_prace}[§~27]{cesko_vyhlaska_poziarna_prevence}.
@@ -154,8 +154,8 @@ Táto dokumentácia je následne používaná v právnych procesoch v prípade �
 \label{kap-2}
 Práca je zameraná na úpravy systému školení v IS MU, preto v nasledujúcej kapitole skrátene popíšeme, ako sú tieto školenia momentálne prevádzkované. 
 
-\section{Aplikácia Bozp}
-Frekventanti sa k absolvovaniu školenia dostanú pomocou aplikácie Bozp\footnote{\url{https://is.muni.cz/auth/bozp/}}. V aplikácii Bozp sú školenia tvorené elektronickými kurzami, ktoré môžu obsahovať jednu alebo viac z nasledujúcich častí:
+\section{Aplikácia BOZP}
+Frekventanti sa k absolvovaniu školenia dostanú pomocou aplikácie BOZP\footnote{\url{https://is.muni.cz/auth/bozp/}}. V aplikácii BOZP sú školenia tvorené elektronickými kurzami, ktoré môžu obsahovať jednu alebo viac z nasledujúcich častí:
 \begin{enumerate}
     \item \textbf{Prezentácia} – obsahuje hlavný výklad a vizuálne materiály.
     \item \textbf{Súbory na stiahnutie} – textové dokumenty, ktoré si účastníci musia stiahnuť a prečítať.
@@ -163,7 +163,7 @@ Frekventanti sa k absolvovaniu školenia dostanú pomocou aplikácie Bozp\footno
 \end{enumerate}
 
 \noindent
-Hlavný vývojový jazyk IS MU je Perl. Dáta sa ukladajú v databáze Oracle a webové skripty spravuje server Apache. Funkcionalita aplikácie Bozp je obsiahnutá v Perlových moduloch a podporných súboroch v jazykoch Javascript a CSS.
+Hlavný vývojový jazyk IS MU je Perl. Dáta sa ukladajú v databáze Oracle a webové skripty spravuje server Apache. Funkcionalita aplikácie BOZP je obsiahnutá v Perlových moduloch a podporných súboroch v jazykoch Javascript a CSS.
 
 Hlavné moduly pre chod aplikácie sú štyri a každý z nich má svoj špecifický účel:
 
@@ -196,7 +196,7 @@ Príkazov na absolvovanie školení tak vzniká veľké množstvo nie len pri pr
 
 \chapter{Dokumentácia školení v IS MU}
 \label{kap-3}
-V IS MU sa dokumentácia školení uchováva pomocou \textbf{Záznamov o absolvovaní školení} (ďalej len Záznam). Sú to dokumenty formátu PDF\footnote{\url{https://www.adobe.com/cz/acrobat/about-adobe-pdf.html}} generované aplikáciou Bozp. Záznam je definovaný ako dokument, ktorý potvrdzuje, že školiteľ v určený dátum preškolil frekventanta obsahom školení, na ktoré sa Záznam vzťahuje. Pre plnú platnosť Záznamu je potrebné ho vytlačiť, fyzicky podpísať absolventom aj školiteľom a odovzdať správcovi dokumentácie.
+V IS MU sa dokumentácia školení uchováva pomocou \textbf{Záznamov o absolvovaní školení} (ďalej len Záznam). Sú to dokumenty formátu PDF\footnote{\url{https://www.adobe.com/cz/acrobat/about-adobe-pdf.html}} generované aplikáciou BOZP. Záznam je definovaný ako dokument, ktorý potvrdzuje, že školiteľ v určený dátum preškolil frekventanta obsahom školení, na ktoré sa Záznam vzťahuje. Pre plnú platnosť Záznamu je potrebné ho vytlačiť, fyzicky podpísať absolventom aj školiteľom a odovzdať správcovi dokumentácie.
 
 Záznamy obsahujú nasledujúce údaje:
 
@@ -206,15 +206,15 @@ Záznamy obsahujú nasledujúce údaje:
   * identifikačné údaje absolventa,
   * identifikačné údaje školiteľa (vedúceho zamestnanca),
   * priestor na podpis absolventa a&nbsp;školiteľa,
-  * meno osoby, ktorej sa Záznam odovzdáva (správca dokumentácie).
+  * pokyny na odovzdanie Záznamu (napríklad odovzdať osobne správcovi dokumentácie alebo ponechať na vrátnici určitého pracoviska).
 \end{markdown}
 
 \section{Podpis a odovzdávanie Záznamov}
 Keďže Záznamy vyžadujú podpis fyzickej osoby ako školiteľa, je potrebné túto osobu určiť. Ak nie je vedením špecifikovaná osoba zodpovedná za školenie zamestnancov, je touto povinnosťou poverený priamy nadriadený frekventanta školenia. Záznam o absolvovaní školenia následne musí táto osoba podpísať, čím potvrdzuje, že školenie skutočne prebehlo. V praxi väčšina školení nemá špecifikovanú zodpovednú osobu, a preto sa ďalej budeme zaoberať najmä touto variantou.
 
-Záznamy o všeobecných školeniach, ako napríklad základné školenie BOZP alebo školenie prvej pomoci, podpisujú nadriadený zamestnanci všetkých \textit{kmeňových pracovísk}\footnote{Kmeňové pracovisko - miesto alebo organizačná jednotka, ku ktorej je pracovník formálne pridelený ako svoje hlavné pracovné miesto.} absolventa. Jedna osoba môže mať kmeňových pracovísk na MU akýkoľvek počet.
+Záznamy o všeobecných školeniach, ako napríklad základné školenie BOZP alebo školenie prvej pomoci, podpisujú nadriadený zamestnanci všetkých \textit{kmeňových pracovísk}\footnote{Kmeňové pracovisko -- miesto alebo organizačná jednotka, ku ktorej je pracovník formálne pridelený ako svoje hlavné pracovné miesto.} absolventa. Jedna osoba môže mať na MU viacero kmeňových pracovísk.
 
-Záznamy o špecifických školeniach podpisujú nadriadení zamestnanci na pracoviskách (aj iných, ako kmeňových) absolventa, ktoré dané školenie vyžadujú.
+Záznamy o špecifických školeniach podpisujú nadriadení zamestnanci na všetkých pracoviskách absolventa (nie iba kmeňových), ktoré dané školenie vyžadujú.
 
 Podpísaný Záznam musí absolvent následne odovzdať správcovi dokumentácie. V mnohých prípadoch túto úlohu plní samotný školiteľ, avšak pri každom preškolení je možné presne určiť osobu zodpovednú za správu dokumentácie.
 
@@ -223,7 +223,7 @@ Môže nastať situácia, že zamestnanec školenie absolvuje a počas jeho plat
 \section{Skupiny školení v Záznamoch}
 Záznamy vyžadujú veľké množstvo administratívnych úkonov spojených s ich uchovávaním. Preto bola na Záznamy stanovená požiadavka, aby mohli obsahovať viacero školení, čím sa ich počet zníži.
 
-Niektoré školenia ale nemôžu spolu patriť do jedného Záznamu. Separátne musia byť napríklad obecné a špecifické školenia, pretože ich treba odovzdávať na iné pracoviská a iným správcom dokumentácie. Prevádzkový odbor rektorátu MU zároveň požiadal, aby školenie pre vodičov nebolo na rovnakom Zozname ako školenia BOZP a PO. Preto sú školenia rozdelené do takzvaných záznamových skupín, ktoré určujú, či môžu byť dve školenia zahrnuté do rovnakého Záznamu.
+Niektoré školenia ale nemôžu spolu patriť do jedného Záznamu. Separátne musia byť napríklad všeobecné a špecifické školenia, pretože ich treba odovzdávať na iné pracoviská a iným správcom dokumentácie. Prevádzkový odbor rektorátu MU zároveň požiadal, aby školenie pre vodičov nebolo na rovnakom Zozname ako školenia BOZP a PO. Preto sú školenia rozdelené do takzvaných záznamových skupín, ktoré určujú, či môžu byť dve školenia zahrnuté do rovnakého Záznamu.
 
 \section{Problémy so Záznamami}
 Záznamy sú síce z právneho hľadiska plne platné, ale spôsob ich generácie a uchovávania so sebou prináša veľké množstvo komplikácií, ktoré ich robia neefektívnymi.
@@ -265,7 +265,7 @@ Pojem \textbf{právnická osoba} označuje akúkoľvek entitu, ako je spoločnos
 
 \textbf{Dáta pre vytváranie elektronických podpisov} sú jedinečné dáta, pomocou ktorých podpisujúca osoba vytvára svoje elektronické podpisy~\cite[čl.~3,~odst.~13]{eidas2024}.
 
-\textbf{Prostriedok pre vytváranie elektronických podpisov} je programové vybavenie alebo technické zariadenie, ktoré sa používa pre vytváranie elektronických podpisov\cite[čl.~3,~odst.~22]{eidas2024} .\textbf{Kvalifikovaný prostriedok pre vytváranie elektronických podpisov} je prostriedok pre vytváranie elektronických podpisov, ktorý spĺňa nasledujúce podmienky~\cite[čl.~3,~odst.~23]{eidas2024}:
+\textbf{Prostriedok pre vytváranie elektronických podpisov} je programové vybavenie alebo technické zariadenie, ktoré sa používa pre vytváranie elektronických podpisov\cite[čl.~3,~odst.~22]{eidas2024}. \textbf{Kvalifikovaný prostriedok pre vytváranie elektronických podpisov} je prostriedok pre vytváranie elektronických podpisov, ktorý spĺňa nasledujúce podmienky~\cite[čl.~3,~odst.~23]{eidas2024}:
 
 \begin{itemize}
   \item Zaisťuje dôvernosť dát pre vytváranie elektronických podpisov, ktoré boli použité pri vytváraní elektronického podpisu.
@@ -284,7 +284,7 @@ Aby bol elektronický podpis považovaný za \textbf{zaručený elektronický po
     \item Je jednoznačne spojený s podpisujúcou osobou.
     \item Umožňuje identifikáciu podpisujúcej osoby.
     \item Je vytvorený pomocou dát pre vytváranie elektronických podpisov a podpisujúca osoba tieto dáta dokáže s vysokou úrovňou dôvery použiť pod svojou výhradnou kontrolou.
-    \item Je pripojený k dátam, ktoré podpisuje, takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.~\cite[čl.~26]{eidas2024}
+    \item Je pripojený k podpisovaným dátam takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.~\cite[čl.~26]{eidas2024}
 \end{itemize}
 
 \noindent
@@ -298,26 +298,40 @@ Pojem \textbf{Poskytovateľ služieb vytvárajúcich dôveru} označuje akúkoľ
 
 \textbf{Kvalifikovaný elektronický podpis} je zaručený elektronický podpis, ktorý je vytvorený kvalifikovaným prostriedkom pre vytváranie elektronických podpisov a založený na kvalifikovanom certifikáte pre elektronické podpisy~\cite[čl.~3,~odst.~12]{eidas2024}. Z právneho hľadiska má takto definovaný kvalifikovaný elektronický podpis rovnaké právne účinky ako vlastnoručný podpis dokumentu~\cite[čl.~25,~odst.~2]{eidas2024}.
 
+\textbf{Dáta pre vytváranie elektronických pečatí} sú jedinečné dáta, pomocou ktorých pečatiaca osoba vytvára svoje elektronické pečate~\cite[čl.~3,~odst.~13]{eidas2024}.
+
+\textbf{Zaručená elektronická pečať} musí spĺňať nasledujúce podmienky~\cite[čl.~3,~odst.~26]{eidas2024}:
+\newpage
+\begin{itemize}
+    \item Je jednoznačne spojená s pečatiacou osobou.
+    \item Umožňuje identifikáciu pečatiacej osoby.
+    \item Je vytvorený pomocou dát pre vytváranie elektronických pečatí a pečatiaca osoba tieto dáta dokáže s vysokou úrovňou dôvery použiť pod svojou výhradnou kontrolou.
+    \item Je pripojená k pečateným dátam takým spôsobom, aby bolo možné zistiť ich akúkoľvek následnú zmenu.~\cite[čl.~26]{eidas2024}
+\end{itemize}
+
+\textbf{Kvalifikovaná elektronická pečať} je zaručená elektronická pečať, ktorá navyše spĺňa podmienky stanovené pre kvalifikované elektronické pečate definované v eIDAS~\cite[čl.~3,~odst.~27]{eidas2024}
+
 \textbf{Jednoduchý elektronický podpis} je akýkoľvek elektronický podpis, ktorý nespĺňa podmienky kvalifikovaného elektronického podpisu ani zaručeného elektronického podpisu. Príkladom takéhoto podpisu je napríklad sken vlastnoručného podpisu, pripojenie svojho mena na koniec správy alebo potvrdenie identity pomocou stlačenia tlačidla.
 
 Presnejšie vymedzenia platnosti jednotlivých elektronických podpisov si upravujú členské štáty EÚ vo vlastnej štátnej legislatíve. Pre potreby dokumentácie školení BOZP a PO je v Českej republike možné použiť akýkoľvek druh elektronického podpisu vrátane jednoduchého elektronického podpisu~\cite[§~7]{cesko_el_podpisy}.
 
 
 \chapter{Úradovňa}
+\enlargethispage{\baselineskip}  % Increase space by one line
 \label{kap-5}
-Vzhľadom na zvažovaný prevod dokumentácie školení do digitálnej formy je dôležité popísať sadu aplikácií v IS MU pod názvom Úradovňa\footnote{\url{https://is.muni.cz/auth/uradovna/}}. Úradovňa v sebe zahŕňa kompletnú digitálnu spisovú službu, ktorá eviduje komunikáciu medzi školou a ostatnými subjektami, a evidenciu postupu riešenia daných vecí. Ponúka aj možnosť automatickej kontroly, automatického doplňovania údajov a ich hromadného zadávania.~\cite{uradovna2024}
+Vzhľadom na zvažovaný prevod dokumentácie školení do digitálnej formy je dôležité popísať sadu aplikácií v IS MU pod názvom Úradovňa\footnote{\url{https://is.muni.cz/auth/uradovna/}}. Úradovňa v sebe zahŕňa kompletnú digitálnu spisovú službu\footnote{Spisová služba – súbor činností, ktorými sa zabezpečuje odborná správa dokumentov~\cite[§~2~odst.~l]{cesko_spis_sl}}, ktorá eviduje komunikáciu medzi školou a ostatnými subjektami, a evidenciu postupu riešenia daných vecí. Ponúka aj možnosť automatickej kontroly, automatického doplňovania údajov a ich hromadného zadávania.
 
-Úradovňa je primárne určená na ukladanie a správu údajov v elektronickej podobe. K týmto elektronicky evidovaným dátam je možné pripojiť aj dokumenty vo fyzickej podobe vrátane naskenovaných verzií dokumentov.~\cite{uradovna2024}
+Úradovňa je primárne určená na ukladanie a správu údajov v elektronickej podobe. K týmto elektronicky evidovaným dátam je možné pripojiť aj dokumenty vo fyzickej podobe vrátane naskenovaných verzií dokumentov.
 
-V Úradovni je základnou jednotkou spis. Táto jednotka analogicky k papierovým spisom obsahuje všetky relevantné informácie o určitej záležitosti. K spisu môžu byť pridané atribúty pre upresnenie osôb a vecí, ktorých sa týka. Každý spis sa skladá z úkonov a patrí do jednej agendy.~\cite{uradovna2024}
+V Úradovni je základnou jednotkou spis. Táto jednotka analogicky k papierovým spisom obsahuje všetky relevantné informácie o určitej záležitosti. K spisu môžu byť pridané atribúty pre upresnenie osôb a vecí, ktorých sa týka. Každý spis sa skladá z úkonov a patrí do jednej agendy.
 
-Úkony predstavujú údaje držané v danom spise. Takisto môžu obsahovať upresňujúce atribúty.~\cite{uradovna2024} Úkonom môže byť napríklad založenie spisu, vloženie dokumentu, ale aj pre túto prácu relevantnejšie podpísanie dokumentu a zapečatenie dokumentu.
+Úkony predstavujú údaje držané v danom spise. Takisto môžu obsahovať upresňujúce atribúty. Úkonom môže byť napríklad založenie spisu, vloženie dokumentu, ale aj pre túto prácu relevantnejšie podpísanie dokumentu a zapečatenie dokumentu.
 
-Agendy sú tvorené spismi, ktoré evidujú záležitosti rovnakého charakteru. Nastavenie agendy určuje, aké atribúty majú spisy a úkony, ktoré do nej spadajú. Každá agenda je následne priradená na správu konkrétnemu pracovisku.~\cite{uradovna2024}
+Agendy sú tvorené spismi, ktoré evidujú záležitosti rovnakého charakteru. Nastavenie agendy určuje, aké atribúty majú spisy a úkony, ktoré do nej spadajú. Každá agenda je následne priradená na správu konkrétnemu pracovisku.
 
-Úradovňa takisto ponúka aj nastavenia prístupových práv k udržiavaným dokumentom. Existuje implicitný a explicitný druh práv. Implicitné práva na prístup vznikajú pre osobu, ktorej sa spis týka, a zároveň pre všetky osoby, od ktorých je žiadaný úkon do daného spisu. Explicitné práva sú potrebné pre administratívnu stránku držania dokumentácie. V kontexte dokumentácie školení je najdôležitejším právo \textit{j\_spis}. Toto právo je viazané na pracovisko a umožňuje čítanie spisov a pridávanie úkonov v jeho agendách~\cite{uradovna2024}.
+Úradovňa takisto ponúka aj nastavenia prístupových práv k udržiavaným dokumentom. Existuje implicitný a explicitný druh práv. Implicitné práva na prístup vznikajú pre osobu, ktorej sa spis týka, a zároveň pre všetky osoby, od ktorých je žiadaný úkon do daného spisu. Explicitné práva sú potrebné pre administratívnu stránku držania dokumentácie. V kontexte dokumentácie školení je najdôležitejším právo \textit{j\_spis}. Toto právo je viazané na pracovisko a umožňuje čítanie spisov a pridávanie úkonov v jeho agendách.
 
-Presnejší popis je možné nájsť v nápovede Úradovne v IS MU~\cite{uradovna2024}.
+Informácie o Úradovni sú čerpané z nápovedy v IS MU~\cite{uradovna2024}.
 
 \chapter{Návrh možností}
 \label{kap-6}
@@ -330,7 +344,7 @@ Na účel elektronickej identifikácie dokumentácie bol po konzultácii s Práv
 \section{Presun Záznamov do aplikácie Úradovňa}
 Pôvodný zámer správy Záznamov bol, že po ich vytlačení budú v papierovej forme podpísané školiteľom aj absolventom a následne naskenované a vložené do digitálneho spisu absolventa. Sken vlastnoručných podpisov spĺňa požiadavky jednoduchého elektronického podpisu. Riešenie by využilo funkcionalitu aplikácie Úradovňa pre spracovávanie papierových dokumentov do spisov. 
 
-Záznamy by bolo potrebné označiť, aby sa dali efektívne skenovať a digitálne skladovať. Skenovanie dokumentov v Úradovni funguje pomocou čiarových kódov~\cite{uradovna2024}, a preto by v aplikácii Bozp bolo potrebné implementovať podporu pre tvorbu čiarových kódov, ktoré by boli rozpoznateľné v oboch aplikáciách. Touto úpravou by vznikli elektronické spisy o školeniach, ktoré sú prehľadnejšie a efektívnejšie ako tie fyzické.
+Záznamy by bolo potrebné označiť, aby sa dali efektívne skenovať a digitálne skladovať. Skenovanie dokumentov v Úradovni funguje pomocou čiarových kódov~\cite{uradovna2024}, a preto by v aplikácii BOZP bolo potrebné implementovať podporu pre tvorbu čiarových kódov, ktoré by boli rozpoznateľné v oboch aplikáciách. Touto úpravou by vznikli elektronické spisy o školeniach, ktoré sú prehľadnejšie a efektívnejšie ako tie fyzické.
 
 Ostatné problémy Záznamov by táto úprava ale vôbec nevyriešila. Záznamy by stále požadovali vytlačenie do papierovej formy, podpísanie školiteľa aj absolventa a vznikla by potreba Záznam naskenovať miesto odovzdania správcovi dokumentácie. 
 
@@ -339,16 +353,16 @@ Ostatné problémy Záznamov by táto úprava ale vôbec nevyriešila. Záznamy 
 \section{Digitalizovanie Záznamov a podpis v Úradovni}
 Následne vznikol návrh Záznamy previezť z fyzickej formy do digitálnej a udržiavať ich v Úradovni. Po absolvovaní školenia by bol Záznam digitálne presunutý do spisu absolventa a v spise elektronicky podpísaný školiteľom a absolventom.
 
-Oproti predošlému návrhu by tak neboli potrebné žiadne administratívne úkony s fyzickými dokumentami. Správcom dokumentácie by sa v Úradovni ľahšie kontrolovalo, či sú Záznamy podpísané oboma osobami. Zároveň by nebolo Záznamy potrebné skenovať, takže by riešenie eliminovalo problém s overovaním obsahu skenovaného dokumentu. Aplikácia Bozp by iba finálny Záznam interne predala do Úradovne.
+Oproti predošlému návrhu by tak neboli potrebné žiadne administratívne úkony s fyzickými dokumentami. Správcom dokumentácie by sa v Úradovni ľahšie kontrolovalo, či sú Záznamy podpísané oboma osobami. Zároveň by nebolo Záznamy potrebné skenovať, takže by riešenie eliminovalo problém s overovaním obsahu skenovaného dokumentu. Aplikácia BOZP by iba finálny Záznam interne predala do Úradovne.
 
 Takáto úprava ale stále nerieši ostatné problémy Záznamov. V prípade úväzkov na viacerých pracoviskách by vznikali komplikácie s vznikom viacerých Záznamov k jednému školeniu. Muselo by vzniknúť viacero rozdielnych Záznamov pre rovnaké školenia a pre každý Záznam by bolo potrebné založiť separátny spis na konkrétnom pracovisku absolventa. Rovnako pretrvávajú aj problémy určovania školiteľa a správcu dokumentácie pre daný Záznam. Vyriešený nie je ani problém dynamickej generácie Záznamov.
 
 \section{Prechod zo Záznamov na Potvrdenia}
-Problémy predošlého riešenia už ale nevznikajú kvôli fyzickej forme Záznamov, ale priamo kvôli ich definícii a spôsobu generácie. Finálnym návrhom, ktorý je použitý v implementačnej časti tejto práce, je prechod pri dokumentácii o absolvovaných školeniach od Záznamov k \textbf{Potvrdeniam o absolvovaní školenia s jednoduchým elektronickým podpisom} (ďalej len Potvrdenie). Potvrdenie je dokument formátu PDF generovaný aplikáciou Bozp. Je definované ako dokument, ktorý potvrdzuje, že daný frekventant absolvoval špecifikované školenie v určitý dátum. Pre jeho nevyvrátiteľnosť je Potvrdenie podpísané jednoduchým podpisom absolventa a zabezpečený kvalifikovanou elektronickou pečaťou IS MU.
+Problémy predošlého riešenia už ale nevznikajú kvôli fyzickej forme Záznamov, ale priamo kvôli ich definícii a spôsobu generácie. Finálny návrh použitý v implementačnej časti tejto práce predstavuje prechod pri dokumentácii o absolvovaných školeniach od Záznamov k \textbf{Potvrdeniam o absolvovaní školenia s jednoduchým elektronickým podpisom} (ďalej len Potvrdenie). Potvrdenie je dokument formátu PDF generovaný aplikáciou BOZP. Jeho definícia ho označuje ako dokument, ktorý potvrdzuje, že daný frekventant absolvoval špecifikované školenie v určitý dátum. Pre nevyvrátiteľnosť Potvrdenia je podpísané jednoduchým podpisom absolventa a zabezpečené kvalifikovanou elektronickou pečaťou IS MU.
 
 \subsection*{Obsah}
 Vďaka prevodu tejto dokumentácie do elektronickej formy je možné uvoľniť a v niektorých prípadoch úplne odstrániť požiadavky, ktoré boli stanovené pre Záznamy. 
-Frekventanti školenie absolvujú pomocou elektronických kurzov v aplikácii Bozp v IS MU bez dozoru nadriadeného zamestnanca alebo inej poverenej osoby. Preto nie je potrebné ako školiteľa špecifikovať fyzickú osobu. Ako školiteľ v tejto situácii pôsobí samotný IS MU, a preto je dostačujúce, aby bolo Potvrdenie podpísané absolventom.
+Frekventanti školenie absolvujú pomocou elektronických kurzov v aplikácii BOZP v IS MU bez dozoru nadriadeného zamestnanca alebo inej poverenej osoby. Preto nie je potrebné ako školiteľa špecifikovať fyzickú osobu. Ako školiteľ v tejto situácii pôsobí samotný IS MU, a preto je dostačujúce, aby bolo Potvrdenie podpísané absolventom.
 Digitálna forma dokumentácie uľahčuje procesy podpisu a správy. Vďaka tejto výhode nie je potrebné tvoriť záznamové skupiny školení a zhlukovať dokumentáciu o absolvovaných školeniach do jedného Potvrdenia. Každé Potvrdenie sa vzťahuje práve na jedno školenie jedného absolventa v určitom dátume. Táto zmena znižuje zložitosť generácie dokumentácie a odstraňuje komplikácie, ktoré vznikajú použitím záznamových skupín.
 
 Obsah Potvrdenia tvoria:
@@ -372,17 +386,17 @@ Jednoduchý elektronický podpis takisto nezaručuje integritu podpísaného dok
 \subsection*{Uchovávanie}
 Potvrdenia, ako dokumentáciu o absolvovaných školeniach, má zamestnávateľ povinnosť dlhodobo udržiavať. Záznamy na tento účel používajú fyzické spisy, ktoré spravujú správcovia dokumentácie. Potvrdenia sú ale plne funkčné v digitálnej forme. Na ich správu nie je potrebné ich papierové formy udržiavať vo fyzických spisoch.
 
-Namiesto fyzických spisov sú Potvrdenia držané v digitálnych spisoch Úradovne. Aplikácia Bozp po dokončení kurzu vytvorí Potvrdenie a poskytne ho frekventantovi na podpísanie. V momente, ako frekventant Potvrdenie podpíše, je dokument interne predaný z aplikácie Bozp do Úradovne. Tá spojí dokument s podpisovou doložkou, ktorá obsahuje všetky relevantné informácie o jednoduchom elektronickom podpise absolventa, a pridá k dokumentu formálne náležitosti spisovej služby vrátane čiarového kódu pre jeho identifikáciu. Následne dokument zapečatí kvalifikovanou pečaťou IS MU a v tejto forme udržiava v spise. V spise sú držané všetky úkony, ktoré boli vykonané, a pečať garantuje pôvod a integritu finálneho dokumentu.
+Namiesto fyzických spisov sú Potvrdenia držané v digitálnych spisoch Úradovne. Aplikácia BOZP po dokončení kurzu vytvorí Potvrdenie a poskytne ho frekventantovi na podpísanie. V momente, ako frekventant Potvrdenie podpíše, je dokument interne predaný z aplikácie BOZP do Úradovne. Tá spojí dokument s podpisovou doložkou, ktorá obsahuje všetky relevantné informácie o jednoduchom elektronickom podpise absolventa, a pridá k dokumentu formálne náležitosti spisovej služby vrátane čiarového kódu pre jeho identifikáciu. Následne dokument zapečatí kvalifikovanou pečaťou IS MU a v tejto forme udržiava v spise. V spise sú držané všetky úkony, ktoré boli vykonané, a pečať garantuje pôvod a integritu finálneho dokumentu.
 
-Záznamy museli byť odovzdávané na všetky kmeňové pracoviská zamestnanca alebo prípadne na všetky pracoviská zamestnanca požadujúce školenia na danom Zázname. Pri Potvrdeniach vďaka ich digitálnej forme a dostupnosti nie je nutné vytvárať takéto kópie. Namiesto toho je jediný dokument vygenerovaný a uložený v spise Úradovne. Tento spis je spojený s jedným vybraným pracoviskom absolventa. Ostatné pracoviská, ktoré toto Potvrdenie požadujú, dostanú právo na prístup k danému spisu. Týmto spôsobom sú oveľa jednoduchšie vyriešené komplikácie pri vzniku úväzku na inom pracovisku MU, ktoré od zamestnanca požaduje akékoľvek ním už absolvované školenie.
+Záznamy museli byť odovzdávané na všetky kmeňové pracoviská zamestnanca alebo prípadne na všetky pracoviská zamestnanca požadujúce školenia na danom Zázname. Pri Potvrdeniach vďaka ich digitálnej forme a dostupnosti nie je nutné vytvárať takéto kópie. Namiesto toho je jediný dokument vygenerovaný a uložený v spise Úradovne. Tento spis je spojený s jedným vybraným pracoviskom absolventa. Ostatné pracoviská, ktoré toto Potvrdenie požadujú, dostanú právo na stiahnutie jeho zapečatenej verzie v aplikácii BOZP. Týmto spôsobom sú oveľa jednoduchšie vyriešené komplikácie pri vzniku úväzku na inom pracovisku MU, ktoré od zamestnanca požaduje akékoľvek ním už absolvované školenie.
 
 Je ale nevyhnutné, aby boli spisy v Úradovni stále pod kontrolou správcov dokumentácie. Preto je dôležité pre každé pracovisko, ktoré bude takéto spisy udržiavať, vybrať osobu zodpovednú za túto dokumentáciu a prideliť jej práva na požadované administratívne úkony.
 
 \chapter{Implementácia Potvrdení do IS MU}
 \label{kap-7}
-V tejto kapitole popíšeme najdôležitejšie časti procesu implementácie Potvrdení do IS MU pomocou úprav v aplikácii Bozp a jej spojením s Úradovňou.
+V tejto kapitole popíšeme najdôležitejšie časti procesu implementácie Potvrdení do IS MU pomocou úprav v aplikácii BOZP a jej spojením s Úradovňou.
 
-Aplikácia Bozp je v aktívnom prevádzkovom režime. Preto je pri vykonávaní zmien dôležité nenarušiť doterajšiu funkcionalitu, ktorú aplikácia poskytuje, a neznehodnotiť existujúce dáta s ňou spojené.
+Aplikácia BOZP je v aktívnom prevádzkovom režime. Preto je pri vykonávaní zmien dôležité nenarušiť doterajšiu funkcionalitu, ktorú aplikácia poskytuje, a neznehodnotiť existujúce dáta s ňou spojené.
 
 \section{Generácia Potvrdení}
 Finálne Potvrdenia sú dokument formátu PDF. Kvôli ich zložitým formátovacím a vizuálnym prvkom je ale výhodnejšie proces ich generácie rozdeliť na dve fázy.
@@ -395,16 +409,16 @@ Obsah školenia v Potvrdení môže byť špecifikovaný stručne alebo celkovo.
 
 Potvrdenia poskytujú možnosť generácie obsahu v kombinácii češtiny a angličtiny, aby ich mohli využívať aj zamestnanci, ktorý český jazyk nepoužívajú. V prípade žiadosti Potvrdenia v oboch jazykoch sú vyhotovené obe jazykové varianty a pripojené za sebou do jedného dokumentu.
 
-\section{Úprava školení v aplikácii Bozp}
+\section{Úprava školení v aplikácii BOZP}
 Funkcionalita poskytovania školení a zobrazovania kurzov je obsiahnutá najmä v module pre kurzy. Dôležité je ale upraviť aj generický modul, ktorého funkcie sú v module pre kurzy často používané.
 
-Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia Bozp prehľad obsahu vybraného kurzu. K 3 základným častiam popísaným v kapitole~\hyperref[kap-2]{2} je pridaná časť, v ktorej je od frekventanta žiadaný podpis Potvrdenia (pozri obr.~\ref{obr1}).
+Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia BOZP prehľad obsahu vybraného kurzu. K 3 základným častiam popísaným v kapitole~\hyperref[kap-2]{2} je pridaná časť, v ktorej je od frekventanta žiadaný podpis Potvrdenia (pozri obr.~\ref{obr1}).
 
 \begin{figure}
   \begin{center}
     \includegraphics[width=\textwidth]{prehledvyberu.png}
   \end{center}
-  \caption{Prehľad kurzu prvej pomoci v aplikácii Bozp}
+  \caption{Prehľad kurzu prvej pomoci v aplikácii BOZP}
   \label{obr1}
 \end{figure}
 
@@ -412,7 +426,7 @@ Po vstupe do akéhokoľvek vybraného kurzu zobrazuje aplikácia Bozp prehľad o
 Časti sú frekventantovi sprístupňované postupne v ich číselnom poradí.
 Podpísanie Potvrdenia o absolvovaní školenia je tým pádom frekventantovi umožnené až po dokončení všetkých ostatných častí kurzu.
 
-Aplikácia Bozp poskytuje v prípade potreby možnosť prikázania školenia bez generácie dokumentácie o jeho absolvovaní. Ak sa žiadna dokumentácia negeneruje, nemôže byť od frekventanta žiadaný jej podpis. Informácia o tom, či je od frekventanta požadovaný podpis je v databáze držaná so samotným príkazom na absolvovanie školenia a nie pri špecifických školeniach a kurzoch.
+Aplikácia BOZP poskytuje v prípade potreby možnosť prikázania školenia bez generácie dokumentácie o jeho absolvovaní. Ak sa žiadna dokumentácia negeneruje, nemôže byť od frekventanta žiadaný jej podpis. Informácia o tom, či je od frekventanta požadovaný podpis, je v databáze držaná so samotným príkazom na absolvovanie školenia a nie pri špecifických školeniach a kurzoch.
 
 Funkcia pre zobrazovanie prehľadu kurzu pred implementáciou Potvrdení zisťovala relevantné informácie iba z databázových záznamov relevantného kurzu a školenia. Pre správne vyhodnocovacie, či má medzi časti zaradiť aj podpis Potvrdenia, bolo potrebné do procesu pridať aj informácie o konkrétnom príkaze frekventanta. Podpisová časť sa tým pádom frekventantovi zobrazí iba v prípade, že to je od neho požadované z príkazu k absolvovaniu školenia.
 
@@ -438,19 +452,19 @@ Samotná podpisová časť (pozri obr.~\ref{obr3}) vo svojom zadaní žiada frek
   \label{obr3}
 \end{figure}
 
-\section{Prepojenie aplikácie Bozp s Úradovňou}
-Potvrdenia je potrebné uchovávať v spisovej službe. Preto sú po ich podpísaní z aplikácie Bozp posielané do Úradovne. Funkcia Úradovne, ktorá vykoná tento presun, požaduje ako argumenty:
+\section{Prepojenie aplikácie BOZP s Úradovňou}
+Potvrdenia je potrebné uchovávať v spisovej službe. Preto sú po ich podpísaní z aplikácie BOZP posielané do Úradovne. Funkcia Úradovne, ktorá vykoná tento presun, požaduje ako argumenty:
 
 \begin{itemize}
     \item identifikačné číslo absolventa;
     \item názov Potvrdenia;
     \item dátum absolvovania školenia;
     \item identifikačné číslo príkazu na absolvovanie školenia;
-    \item Potvrdenie samotné ako dokument na uloženie do spisu; a
+    \item Potvrdenie samotné ako dokument na uloženie do spisu;
     \item identifikačné číslo pracoviska, ktoré bude spravovať spis Potvrdenia.
 \end{itemize}
 \noindent
-\textbf{Identifikačné číslo absolventa:} na MU je používané univerzitné číslo osoby (učo)\footnote{\url{https://it.muni.cz/kategorie/ucty-hesla-a-id-karty}}, ktoré ju jednoznačne identifikuje.
+\textbf{Identifikačné číslo absolventa:} na MU je používané univerzitné číslo osoby (učo\footnote{\url{https://it.muni.cz/kategorie/ucty-hesla-a-id-karty}}), ktoré ju jednoznačne identifikuje.
 
 \noindent
 \textbf{Názov Potvrdenia:} Tento názov je použitý aj ako názov spisu. Názov je tvorený spojením názvu školenia a dátumu absolvovania.
@@ -499,14 +513,14 @@ Pracovisko, ktoré má spravovať spis Potvrdenia nie je s príkazom ani školen
 \subsection*{Priloženie podpisovej doložky a zapečatenie}
 Po presune výsledného Potvrdenia do Úradovne je k nemu pripojená podpisová doložka obsahujúca všetky dôležité informácie o podpísaní absolventom a následne je Potvrdenie zaradené do fronty na zapečatenie kvalifikovanou elektronickou pečaťou IS MU. Absolvent je o stave pečatenia informovaný priamo v podpisovej časti kurzu po podpísaní Potvrdenia. Zároveň je mu zobrazený odkaz na zobrazenie Potvrdenia v spise Úradovne.
 
-Tento odkaz je generovaný Úradovňou a spolu s identifikačným číslom dokumentu je vrátený aplikácii Bozp, ktorá si ho uchováva. Odkaz sa používa na zobrazenie existujúceho Potvrdenia pri návrate absolventa k prehliadke dokončeného kurzu a podľa identifikačného čísla dokumentu sa kontroluje stav zapečatenia dokumentu v Úradovni. Aplikácia Bozp si uchováva aj presný čas vykonania podpisu pri každom prechode elektronickým kurzom, aby bolo možné presnejšie dokázať existenciu tohto úkonu.
+Tento odkaz je generovaný Úradovňou a spolu s identifikačným číslom dokumentu je vrátený aplikácii BOZP, ktorá si ho uchováva. Odkaz sa používa na zobrazenie existujúceho Potvrdenia pri návrate absolventa k prehliadke dokončeného kurzu a podľa identifikačného čísla dokumentu sa kontroluje stav zapečatenia dokumentu v Úradovni. Aplikácia BOZP si uchováva aj presný čas vykonania podpisu pri každom prechode elektronickým kurzom, aby bolo možné presnejšie dokázať existenciu tohto úkonu.
 
 Vzorový príklad výsledného podpísaného a zapečateného Potvrdenia sa nachádza v prílohe~\hyperref[priloha1]{1}.
 
 \subsection*{Nasadenie Potvrdení v IS MU}
-Generácia Potvrdení bola otestovaná pomocou testovacích príkladov frekventantov, školení a príkazov na ich splnenie. Následne bol podpis Potvrdení sprístupnený v relevantných kurzoch v aplikácii Bozp.
+Generácia Potvrdení bola otestovaná pomocou testovacích príkladov frekventantov, školení a príkazov na ich splnenie. Následne bol podpis Potvrdení sprístupnený v relevantných kurzoch v aplikácii BOZP.
 
-Prevádzka podpisovania Potvrdení je priebežne kontrolovaná. Databázové objekty používané v aplikácii Bozp majú nastavené prísne obmedzenia\footnote{\url{https://docs.oracle.com/cd/B13789_01/server.101/b10759/clauses002.htm}}, vďaka ktorým je možné zamedziť prípadným chybám už pred ich vznikom alebo aspoň minimalizovať spôsobené škody. Digitálne spisy obsahujúce Potvrdenia nie je potrebné kontrolovať v aplikácii Bozp, pretože sú tieto kontroly prevádzané priamo v aplikácii Úradovňa, ktorá spisy udržiava.
+Prevádzka podpisovania Potvrdení je priebežne kontrolovaná. Databázové objekty používané v aplikácii BOZP majú nastavené prísne obmedzenia\footnote{\url{https://docs.oracle.com/cd/B13789_01/server.101/b10759/clauses002.htm}}, vďaka ktorým je možné zamedziť prípadným chybám už pred ich vznikom alebo aspoň minimalizovať spôsobené škody. Digitálne spisy obsahujúce Potvrdenia sú chránené prostredníctvom Úradovne a kontrolované správcami dokumentácie pomocou správcovských aplikácií školení.
 
 Potvrdenia budú naďalej zlepšované. Hlavným zameraním je úprava správcovských aplikácií, aby mali zodpovedné osoby ľahší prístup k spravovaniu tejto dokumentácie. Ďalším dôležitým rozšírením je aj pridanie možnosti zobrazenia prehľadu osôb, ktoré dokončili školenie ale nepodpísali Potvrdenie.
 
@@ -518,7 +532,7 @@ Cieľom tejto práce bolo previesť podpisovanie dokumentácie o absolvovaní š
 
 V priebehu práce boli preskúmané dôležité právne a používateľské požiadavky týkajúce sa školení a digitálnej dokumentácie, ako aj technológie, ktoré sú pre tento účel vhodné. Na základe týchto zistení boli formulované návrhy na zlepšenie doterajšieho systému správy dokumentácie školení v IS MU. Každý z návrhov bol analyzovaný z hľadiska jeho výhod a nevýhod.
 
-Zvoleným riešením bolo implementovať Potvrdenie o absolvovaní školenia s jednoduchým elektronickým podpisom do aplikácie Bozp v IS MU. Potvrdenia sú aplikáciou generované a možnosť ich podpisovania bola implementovaná v súlade s právnymi požiadavkami na dokumentáciu školení BOZP a PO. Proces podpisovania pomocou jednoduchého elektronického podpisu je v súlade so zákonnými nariadeniami. Fyzické Záznamy boli nahradené digitálnou dokumentáciou o absolvovaní školení, čím sa dosiahol stanovený cieľ práce.
+Zvoleným riešením bolo implementovať Potvrdenie o absolvovaní školenia s jednoduchým elektronickým podpisom do aplikácie BOZP v IS MU. Potvrdenia sú aplikáciou generované a možnosť ich podpisovania bola implementovaná v súlade s právnymi požiadavkami na dokumentáciu školení BOZP a PO. Proces podpisovania pomocou jednoduchého elektronického podpisu je v súlade so zákonnými nariadeniami. Fyzické Záznamy boli nahradené digitálnou dokumentáciou o absolvovaní školení, čím sa dosiahol stanovený cieľ práce.
 
 \chapter*{Zoznam príloh}
 \addcontentsline{toc}{chapter}{Zoznam príloh}
